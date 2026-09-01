@@ -23,9 +23,9 @@ export function whatsappUrl(text: string = SITE.whatsappInfoText) {
 }
 
 export const NAV = [
-  { href: "/", label: "Ana Sayfa" },
   { href: "/hizmetler", label: "Hizmetler" },
   { href: "/sektorler", label: "Sektörler" },
+  { href: "/calismalarimiz", label: "Çalışmalarımız" },
   { href: "/makaleler", label: "Bilgi Merkezi" },
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/iletisim", label: "İletişim" },

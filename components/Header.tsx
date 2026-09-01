@@ -8,36 +8,27 @@ import { Logo } from "@/components/Logo";
 import { useQuotePanel } from "@/contexts/QuotePanelContext";
 import { useFocusTrap, useLockBody } from "@/hooks/useDialog";
 import { cn } from "@/lib/cn";
-import { NAV, SITE } from "@/lib/site";
+import { NAV } from "@/lib/site";
+
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const { openPanel } = useQuotePanel();
   const trapRef = useFocusTrap(open);
   useLockBody(open);
 
   useEffect(() => {
-    let lastY = window.scrollY;
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 16);
-      if (open) {
-        setHidden(false);
-        lastY = y;
-        return;
-      }
-      setHidden(y > lastY && y > 120);
-      lastY = y;
-    };
-
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [open]);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -52,50 +43,41 @@ export function Header() {
     <>
       <header
         className={cn(
-          "site-header fixed inset-x-0 top-0 z-[60] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          hidden && !open ? "-translate-y-full" : "translate-y-0",
-          scrolled || open || pathname !== "/"
-            ? "border-b border-line-white bg-[rgba(5,5,5,0.94)] backdrop-blur-md"
-            : "border-b border-transparent bg-transparent",
+          "site-header",
+          scrolled && "is-scrolled",
+          open && "is-menu-open",
         )}
       >
         <div className="site-header-inner">
           <Logo />
 
-          <nav className="site-nav hidden min-[1180px]:flex" aria-label="Ana menü">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "nav-link text-[0.875rem] font-medium tracking-[0.1em] uppercase",
-                  pathname === item.href ? "text-cream" : "text-cream/85",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="desktop-navigation" aria-label="Ana menü">
+            {NAV.map((item) => {
+              const active = isActivePath(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="navigation-link"
+                  aria-current={active ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
-
-          <div className="site-header-actions hidden min-[1180px]:flex">
-            <a
-              href={SITE.phoneTel}
-              className="site-header-phone text-[0.875rem] tracking-[0.06em] text-muted hover:text-cream"
-            >
-              {SITE.phoneDisplay}
-            </a>
-            <button
-              type="button"
-              className="btn-primary site-header-cta"
-              onClick={openPanel}
-            >
-              Teklif Alın
-            </button>
-          </div>
 
           <button
             type="button"
-            className="site-header-menu-btn relative z-[60] inline-flex min-h-11 min-w-11 items-center justify-center text-cream min-[1180px]:hidden"
+            className="header-cta"
+            onClick={openPanel}
+          >
+            Teklif Al
+          </button>
+
+          <button
+            type="button"
+            className="mobile-menu-trigger"
             aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
             aria-expanded={open}
             aria-controls="mobil-menu"
@@ -108,8 +90,8 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[rgba(5,5,5,0.65)] backdrop-blur-[2px] transition-opacity duration-500 min-[1180px]:hidden",
-          open ? "opacity-100" : "pointer-events-none opacity-0",
+          "mobile-menu-backdrop",
+          open ? "is-visible" : "",
         )}
         onClick={() => setOpen(false)}
         aria-hidden="true"
@@ -118,37 +100,38 @@ export function Header() {
       <div
         id="mobil-menu"
         ref={trapRef}
-        className={cn(
-          "menu-panel fixed inset-y-0 right-0 z-50 flex w-[min(100%,22rem)] flex-col border-l border-line-white bg-bg px-6 pt-[5.5rem] pb-[calc(1.5rem+env(safe-area-inset-bottom))] shadow-[-20px_0_40px_rgba(0,0,0,0.45)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] min-[1180px]:hidden",
-          open ? "menu-open translate-x-0" : "pointer-events-none translate-x-full",
-        )}
+        className={cn("mobile-menu-panel", open && "is-open")}
         role="dialog"
         aria-modal="true"
         aria-label="Mobil menü"
         aria-hidden={!open}
       >
-        <nav className="flex flex-col gap-1" aria-label="Mobil menü">
-          {NAV.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="menu-item min-h-12 border-b border-line-white py-3 font-serif text-2xl text-cream"
-              style={{ animationDelay: `${80 + index * 70}ms` }}
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="mobile-menu-nav" aria-label="Mobil menü">
+          {NAV.map((item, index) => {
+            const active = isActivePath(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn("mobile-menu-link", active && "is-active")}
+                style={{ animationDelay: `${80 + index * 60}ms` }}
+                aria-current={active ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
         <button
           type="button"
-          className="btn-primary mt-8 min-h-12 w-full"
+          className="header-cta mobile-menu-cta"
           onClick={() => {
             setOpen(false);
             openPanel();
           }}
         >
-          Teklif Alın
+          Teklif Al
         </button>
       </div>
     </>
