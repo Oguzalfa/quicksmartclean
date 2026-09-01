@@ -797,6 +797,10 @@ button:hover .arrow-shift {
   transform: scale(1);
 }
 
+.precision-image--luxury {
+  object-position: center 55%;
+}
+
 .precision-overlay {
   position: absolute;
   inset: 0;
@@ -863,6 +867,10 @@ button:hover .arrow-shift {
 
   .precision-image {
     object-position: 62% center;
+  }
+
+  .precision-image--luxury {
+    object-position: 58% center;
   }
 
   .precision-content {

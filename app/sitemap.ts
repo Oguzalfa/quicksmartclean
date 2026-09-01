@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/hakkimizda",
     "/iletisim",
     "/kurumsal-teklif",
+    "/calismalarimiz",
   ].map((path) => ({
     url: `${SITE.url}${path}`,
     lastModified: new Date("2026-09-01"),

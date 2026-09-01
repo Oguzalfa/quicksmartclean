@@ -9,23 +9,41 @@ import { useFocusTrap, useLockBody } from "@/hooks/useDialog";
 import { cn } from "@/lib/cn";
 import {
   GALLERY_LAYOUT,
+  HOME_GALLERY_LAYOUT,
+  HOME_MOBILE_GALLERY_ORDER,
   IMAGES,
   MOBILE_GALLERY_ORDER,
+  type GalleryLayoutType,
   type ImageKey,
 } from "@/lib/images";
 
-export function OperationsGallery() {
+type OperationsGalleryProps = {
+  variant?: "home" | "full";
+};
+
+function getAspectRatio(layout: GalleryLayoutType) {
+  if (layout === "tall") return "4/5";
+  if (layout === "wide") return "3/2";
+  if (layout === "cinema") return "16/9";
+  return "16/10";
+}
+
+export function OperationsGallery({ variant = "home" }: OperationsGalleryProps) {
   const [index, setIndex] = useState<number | null>(null);
   const open = index !== null;
   const trapRef = useFocusTrap(open);
   useLockBody(open);
 
-  const items = GALLERY_LAYOUT.map((item) => ({
+  const layoutSource = variant === "full" ? GALLERY_LAYOUT : HOME_GALLERY_LAYOUT;
+  const mobileOrder =
+    variant === "full" ? MOBILE_GALLERY_ORDER : HOME_MOBILE_GALLERY_ORDER;
+
+  const items = layoutSource.map((item) => ({
     ...item,
     image: IMAGES[item.imageKey],
   }));
 
-  const mobileItems = MOBILE_GALLERY_ORDER.map((key) => IMAGES[key]);
+  const mobileItems = mobileOrder.map((key) => IMAGES[key]);
 
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(() => {
@@ -63,6 +81,17 @@ export function OperationsGallery() {
               <span className="mt-1 block text-gold">Tek Bir Kalite Standardı</span>
             </h2>
           </Reveal>
+          {variant === "home" && (
+            <Reveal delay={100}>
+              <Link
+                href="/calismalarimiz"
+                className="mt-6 inline-flex min-h-11 items-center gap-2 text-[0.74rem] tracking-[0.14em] text-gold uppercase"
+              >
+                Tüm Çalışmaları Görüntüle
+                <ArrowRight className="h-4 w-4" strokeWidth={1.6} />
+              </Link>
+            </Reveal>
+          )}
         </div>
 
         <div className="mt-12 hidden gap-4 md:grid md:grid-cols-12 md:gap-5">
@@ -81,16 +110,12 @@ export function OperationsGallery() {
             <button
               key={image.id}
               type="button"
-              className="work-card relative w-[86vw] max-w-[22rem] shrink-0 overflow-hidden bg-surface"
+              className="work-card relative w-[86vw] max-w-[22rem] shrink-0 overflow-hidden bg-bg"
               onClick={() => setIndex(itemIndex)}
               aria-label={`${image.sector} görselini incele`}
             >
-              <SmartImage
-                image={image}
-                aspectRatio="16/10"
-                sizes="86vw"
-              />
-              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#050505]/75 to-transparent p-5 text-left">
+              <SmartImage image={image} aspectRatio="16/10" sizes="86vw" />
+              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[rgba(5,5,5,0.75)] to-transparent p-5 text-left">
                 <p className="text-[0.72rem] tracking-[0.2em] text-gold uppercase">
                   {image.sector}
                 </p>
@@ -121,7 +146,7 @@ function GalleryCard({
   onOpen,
 }: {
   image: (typeof IMAGES)[ImageKey];
-  layout: "hero" | "tall" | "wide" | "normal";
+  layout: GalleryLayoutType;
   onOpen: () => void;
 }) {
   return (
@@ -132,21 +157,22 @@ function GalleryCard({
         layout === "hero" && "md:col-span-7 md:row-span-2",
         layout === "tall" && "md:col-span-5",
         layout === "wide" && "md:col-span-12",
+        layout === "cinema" && "md:col-span-12",
         layout === "normal" && "md:col-span-6",
       )}
     >
       <button
         type="button"
-        className="group relative block w-full overflow-hidden bg-surface text-left"
+        className="group relative block w-full overflow-hidden bg-bg text-left"
         onClick={onOpen}
         aria-label={`${image.sector} görselini incele`}
       >
         <SmartImage
           image={image}
-          aspectRatio={layout === "tall" ? "4/5" : layout === "wide" ? "3/2" : "16/10"}
+          aspectRatio={getAspectRatio(layout)}
           sizes="(max-width: 768px) 100vw, 40vw"
         />
-        <div className="work-overlay absolute inset-0 flex flex-col justify-between bg-[#050505]/40 p-5 md:p-6">
+        <div className="work-overlay absolute inset-0 flex flex-col justify-between bg-[rgba(5,5,5,0.35)] p-5 md:p-6">
           <Expand className="ml-auto h-4 w-4 text-gold" strokeWidth={1.4} />
           <div>
             <p className="text-[0.72rem] tracking-[0.2em] text-gold uppercase">

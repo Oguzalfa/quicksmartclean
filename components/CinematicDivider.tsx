@@ -1,15 +1,18 @@
 import Image from "next/image";
+import { IMAGES } from "@/lib/images";
 
 export function CinematicDivider() {
+  const image = IMAGES.luxuryResidenceTeam;
+
   return (
     <section className="precision-section" aria-label="Her detayda aynı hassasiyet">
       <Image
-        src="/images/quick-smart-clean-yacht.jpeg"
-        alt="Quick Smart Clean yat ve marina temizlik operasyonu"
+        src={image.src}
+        alt={image.alt}
         fill
         sizes="100vw"
         quality={90}
-        className="precision-image"
+        className="precision-image precision-image--luxury"
       />
 
       <div className="precision-overlay" aria-hidden="true" />

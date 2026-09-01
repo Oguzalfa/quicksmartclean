@@ -127,7 +127,94 @@ export const SERVICES: ServiceItem[] = [
     scope: "Ekip planlama, vardiya, raporlama, kalite kontrol",
     keywords: ["temizlik operasyonu", "çok lokasyonlu temizlik"],
     relatedSectorSlugs: ["kurumsal-ofisler", "otel-konaklama"],
-    relatedArticleSlugs: ["cok-subeli-isletmelerde-temizlik-operasyonu"],
+    relatedArticleSlugs: [
+      "cok-subeli-isletmelerde-temizlik-operasyonu",
+      "profesyonel-temizlikte-kalite-kontrol-teslim-sureci",
+    ],
+  },
+  {
+    slug: "spor-salonu-temizligi",
+    num: "09",
+    title: "Spor Salonu Temizliği",
+    summary:
+      "Yoğun temas alanları, spor ekipmanları, zeminler ve ortak kullanım alanları için planlı temizlik hizmetleri.",
+    description:
+      "Spor salonu temizliği; ekipman yüzeyleri, zeminler, soyunma odaları ve ortak kullanım alanlarında işletmenin çalışma saatlerine uygun planlı uygulamaları kapsar. Yoğun kullanım dönemlerine göre vardiya ve kontrol planı oluşturulur.",
+    sectors: "Spor, Yaşam Merkezleri",
+    scope: "Ekipman yüzeyleri, zemin, soyunma odası, ortak alan",
+    keywords: ["spor salonu temizliği", "fitness merkezi temizliği"],
+    relatedSectorSlugs: ["spor-salonlari-yasam"],
+    relatedArticleSlugs: ["spor-salonlarinda-temizlik-plani"],
+  },
+  {
+    slug: "havuz-cevre-alan-temizligi",
+    num: "10",
+    title: "Havuz ve Çevre Alan Temizliği",
+    summary:
+      "Havuz çevresi, açık alan yüzeyleri ve yoğun kullanılan dış yaşam alanları için düzenli temizlik desteği.",
+    description:
+      "Havuz ve çevre alan temizliği; teras, havuz kenarı, açık kullanım bölgeleri ve yoğun temas alanlarında düzenli temizlik planı gerektirir. Havuz suyu kimyasal analizi veya teknik bakım hizmeti bu kapsamın dışındadır.",
+    sectors: "Villa, Otel, Seçkin Yaşam",
+    scope: "Havuz çevresi, teras, açık alan yüzeyleri",
+    keywords: ["havuz çevresi temizliği", "açık alan temizliği"],
+    relatedSectorSlugs: ["havuz-acik-yasam", "villa-rezidans", "otel-konaklama"],
+    relatedArticleSlugs: ["havuz-cevresi-acik-yasam-alanlari-temizligi"],
+  },
+  {
+    slug: "dis-cephe-cam-temizligi",
+    num: "11",
+    title: "Dış Cephe ve Cam Temizliği",
+    summary:
+      "Kurumsal binaların cam ve dış cephe yüzeyleri için erişim koşullarına göre planlanan profesyonel temizlik.",
+    description:
+      "Dış cephe ve cam temizliği; bina yapısı, yükseklik ve erişim koşullarına göre planlanır. Her proje için saha keşfi yapılır, uygulama yöntemi ve ekip düzeni proje bazında belirlenir.",
+    sectors: "Kurumsal Yapılar",
+    scope: "Cam cephe, dış yüzey, erişim planlaması",
+    keywords: ["dış cephe temizliği", "cam temizliği"],
+    relatedSectorSlugs: ["kurumsal-dis-cephe", "kurumsal-ofisler"],
+    relatedArticleSlugs: ["dis-cephe-cam-temizligi-planlama"],
+  },
+  {
+    slug: "banyo-islak-alan-temizligi",
+    num: "12",
+    title: "Banyo ve Islak Alan Temizliği",
+    summary:
+      "Banyo, lavabo, duş ve yoğun neme maruz kalan yüzeylerde detay odaklı temizlik uygulamaları.",
+    description:
+      "Banyo ve ıslak alan temizliği; lavabo, duş, fayans yüzeyleri ve yoğun neme maruz bölgelerde detay odaklı uygulama gerektirir. Otel, villa ve rezidans projelerinde alan bazlı kontrol listeleri kullanılır.",
+    sectors: "Otel, Villa, Rezidans",
+    scope: "Banyo, lavabo, duş, ıslak yüzeyler",
+    keywords: ["banyo temizliği", "ıslak alan temizliği"],
+    relatedSectorSlugs: ["villa-rezidans", "otel-konaklama"],
+    relatedArticleSlugs: ["banyo-islak-alan-temizliginde-dikkat-edilmesi-gerekenler"],
+  },
+  {
+    slug: "insaat-tadilat-sonrasi-temizlik",
+    num: "13",
+    title: "İnşaat ve Tadilat Sonrası Temizlik",
+    summary:
+      "Yeni tamamlanan veya yenilenen yaşam ve çalışma alanlarını kullanıma hazırlayan kapsamlı temizlik uygulamaları.",
+    description:
+      "İnşaat ve tadilat sonrası temizlik; ince toz, yüzey kalıntıları ve kullanım öncesi detay temizliğini kapsar. Moloz taşıma, tehlikeli atık bertarafı veya teknik inşaat hizmetleri bu kapsamın dışındadır.",
+    sectors: "Kurumsal, Seçkin Yaşam",
+    scope: "İnce toz temizliği, yüzey hazırlığı, kullanıma hazırlık",
+    keywords: ["inşaat sonrası temizlik", "tadilat sonrası temizlik"],
+    relatedSectorSlugs: ["villa-rezidans", "kurumsal-ofisler"],
+    relatedArticleSlugs: ["insaat-sonrasi-temizlik-asamalari"],
+  },
+  {
+    slug: "kalite-kontrol-teslim-sureci",
+    num: "14",
+    title: "Kalite Kontrol ve Teslim Süreci",
+    summary:
+      "Tamamlanan hizmeti belirlenen kontrol adımlarıyla değerlendiren, teslim sürecini takip edilebilir şekilde yöneten operasyon yaklaşımı.",
+    description:
+      "Kalite kontrol ve teslim süreci; hizmet tamamlandıktan sonra belirlenen kontrol adımlarıyla değerlendirme ve teslim aşamalarını kapsar. Süreç, işletmenin beklentilerine göre şeffaf ve izlenebilir şekilde yürütülür.",
+    sectors: "Tüm sektörler",
+    scope: "Kontrol listesi, teslim değerlendirmesi, süreç takibi",
+    keywords: ["kalite kontrol", "temizlik teslim süreci"],
+    relatedSectorSlugs: ["kurumsal-ofisler", "otel-konaklama", "villa-rezidans"],
+    relatedArticleSlugs: ["profesyonel-temizlikte-kalite-kontrol-teslim-sureci"],
   },
 ];
 
