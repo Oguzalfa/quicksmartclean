@@ -3,7 +3,7 @@ import { PROCESS_STEPS } from "@/lib/site";
 
 export function Process() {
   return (
-    <section className="section-pad border-y border-line-white bg-bg-secondary">
+    <section className="operation-section border-t border-line-white">
       <div className="site-shell-wide">
         <div className="max-w-3xl">
           <Reveal>

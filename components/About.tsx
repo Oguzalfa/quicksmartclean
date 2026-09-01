@@ -4,7 +4,7 @@ import { IMAGES } from "@/lib/images";
 
 export function About() {
   return (
-    <section id="hakkimizda" className="section-pad bg-bg-secondary">
+    <section id="hakkimizda" className="section-pad">
       <div className="site-shell-wide grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal variant="zoom" className="lg:col-span-5">
           <SmartImage

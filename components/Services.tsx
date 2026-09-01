@@ -12,7 +12,7 @@ export function Services() {
   const { openPanel } = useQuotePanel();
 
   return (
-    <section id="hizmetler" className="section-pad border-t border-line-white bg-bg-secondary">
+    <section id="hizmetler" className="section-pad border-t border-line-white">
       <div className="site-shell-wide grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
           <Reveal>

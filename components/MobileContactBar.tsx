@@ -40,7 +40,7 @@ export function MobileContactBar() {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t border-line-white bg-[#0b0b0b]/96 backdrop-blur-md transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden",
+        "fixed inset-x-0 bottom-0 z-40 border-t border-line-white bg-[rgba(5,5,5,0.94)] backdrop-blur-md transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden",
         visible ? "translate-y-0" : "translate-y-full",
       )}
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}

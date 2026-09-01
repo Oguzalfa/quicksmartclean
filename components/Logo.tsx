@@ -11,7 +11,7 @@ export function Logo({ className, compact = false }: LogoProps) {
     <Link
       href="/"
       className={cn(
-        "group flex min-h-11 items-center gap-2.5 text-cream no-underline",
+        "site-logo group flex min-h-11 items-center gap-2.5 text-cream no-underline",
         className,
       )}
       aria-label="Quick Smart Clean ana sayfa"

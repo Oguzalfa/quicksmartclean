@@ -167,7 +167,7 @@ export function QuotePanel() {
 
   return (
     <div
-      className="fixed inset-0 z-[90] flex justify-end bg-black/65"
+      className="fixed inset-0 z-[90] flex justify-end bg-[rgba(5,5,5,0.65)]"
       role="presentation"
       onClick={closePanel}
     >
@@ -176,7 +176,7 @@ export function QuotePanel() {
         role="dialog"
         aria-modal="true"
         aria-label="Kurumsal teklif formu"
-        className="flex h-full w-full max-w-[40rem] flex-col border-l border-line-white bg-[#0b0b0b] shadow-[-24px_0_60px_rgba(0,0,0,0.45)]"
+        className="flex h-full w-full max-w-[40rem] flex-col border-l border-line-white bg-bg shadow-[-24px_0_60px_rgba(0,0,0,0.45)]"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between border-b border-line-white px-5 py-4 md:px-8">

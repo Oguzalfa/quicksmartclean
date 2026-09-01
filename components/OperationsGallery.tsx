@@ -51,7 +51,7 @@ export function OperationsGallery() {
   }, [open, close, prev, next]);
 
   return (
-    <section id="calismalarimiz" className="section-pad bg-bg-secondary">
+    <section id="calismalarimiz" className="section-pad">
       <div className="site-shell-wide">
         <div className="max-w-3xl">
           <Reveal>
@@ -184,7 +184,7 @@ function Lightbox({
   return (
     <div
       ref={trapRef}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/92"
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-[rgba(5,5,5,0.98)]"
       role="dialog"
       aria-modal="true"
       aria-label="Galeri görseli"

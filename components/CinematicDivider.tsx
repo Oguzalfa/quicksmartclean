@@ -1,25 +1,26 @@
-import { SmartImage } from "@/components/SmartImage";
-import { Reveal } from "@/components/Reveal";
-import { IMAGES } from "@/lib/images";
+import Image from "next/image";
 
 export function CinematicDivider() {
   return (
-    <section className="relative min-h-[70vh] overflow-hidden md:min-h-[80vh]">
-      <SmartImage
-        image={IMAGES.yacht}
-        className="absolute inset-0 h-full w-full"
-        aspectRatio="auto"
+    <section className="precision-section" aria-label="Her detayda aynı hassasiyet">
+      <Image
+        src="/images/quick-smart-clean-yacht.jpeg"
+        alt="Quick Smart Clean yat ve marina temizlik operasyonu"
+        fill
         sizes="100vw"
-        priority={false}
+        quality={90}
+        className="precision-image"
       />
-      <div className="absolute inset-0 bg-[#050505]/45" />
-      <div className="site-shell-wide relative flex min-h-[70vh] items-end pb-16 md:min-h-[80vh] md:items-center md:pb-0">
-        <Reveal>
-          <p className="max-w-xl font-serif text-[clamp(2rem,4vw,3.4rem)] leading-[1.1] text-cream">
-            Her Detayda
-            <span className="mt-1 block text-gold">Aynı Hassasiyet</span>
-          </p>
-        </Reveal>
+
+      <div className="precision-overlay" aria-hidden="true" />
+
+      <div className="precision-content">
+        <p className="precision-eyebrow">QUICK SMART CLEAN</p>
+
+        <h2 className="precision-title font-serif">
+          <span>Her Detayda</span>
+          <span>Aynı Hassasiyet</span>
+        </h2>
       </div>
     </section>
   );
