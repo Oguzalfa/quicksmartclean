@@ -8,7 +8,7 @@ import { IMAGES } from "@/lib/images";
 import { createPageMetadata } from "@/lib/metadata";
 import { getServiceBySlug } from "@/lib/services-data";
 import { getAllSectorSlugs, getSectorBySlug } from "@/lib/sectors-data";
-import { SITE } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -47,7 +47,7 @@ export default async function SectorDetailPage({ params }: Props) {
     "@type": "WebPage",
     name: sector.shortTitle,
     description: sector.description,
-    url: `${SITE.url}/sektorler/${slug}`,
+    url: absoluteUrl(`/sektorler/${slug}`),
   };
 
   return (

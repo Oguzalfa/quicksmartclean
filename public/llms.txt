@@ -3,13 +3,14 @@
 Quick Smart Clean is a professional cleaning company serving corporate offices, healthcare facilities, HoReCa, aviation, marine, hospitality, retail, and premium residential properties in Turkey.
 
 ## Main pages
-- Home: /
-- Services: /hizmetler
-- Sectors: /sektorler
-- Articles: /makaleler
-- About: /hakkimizda
-- Contact: /iletisim
-- Corporate quote: /kurumsal-teklif
+- Home: https://www.quicksmartclean.com/
+- Services: https://www.quicksmartclean.com/hizmetler
+- Sectors: https://www.quicksmartclean.com/sektorler
+- Articles: https://www.quicksmartclean.com/makaleler
+- About: https://www.quicksmartclean.com/hakkimizda
+- Contact: https://www.quicksmartclean.com/iletisim
+- Corporate quote: https://www.quicksmartclean.com/kurumsal-teklif
 
 ## Contact
+Email: info@quicksmartclean.com
 Phone: +90 531 843 50 58

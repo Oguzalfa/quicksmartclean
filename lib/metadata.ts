@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SITE } from "@/lib/site";
+
+const defaultOgImage = absoluteUrl(SITE.ogImage);
 
 export function createPageMetadata({
   title,
@@ -12,26 +14,36 @@ export function createPageMetadata({
   path: string;
   image?: string;
 }): Metadata {
-  const url = `${SITE.url}${path}`;
+  const canonical = absoluteUrl(path);
+  const ogImage = image ? absoluteUrl(image) : defaultOgImage;
 
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical },
     openGraph: {
       title,
       description,
-      url,
+      url: canonical,
       type: "website",
       locale: "tr_TR",
       siteName: SITE.name,
-      images: image ? [{ url: image }] : undefined,
+      images: [
+        {
+          url: ogImage,
+          width: 1920,
+          height: 1440,
+          alt: `${SITE.name} profesyonel temizlik hizmetleri`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: image ? [image] : undefined,
+      images: [ogImage],
     },
   };
 }
+
+export const defaultOgImageUrl = defaultOgImage;

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { QuotePanelProvider } from "@/contexts/QuotePanelContext";
-import { SITE } from "@/lib/site";
+import { defaultOgImageUrl } from "@/lib/metadata";
+import { absoluteUrl, SITE } from "@/lib/site";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -43,20 +44,29 @@ export const metadata: Metadata = {
     "çok lokasyonlu temizlik hizmetleri",
   ],
   alternates: {
-    canonical: "/",
+    canonical: absoluteUrl("/"),
   },
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: SITE.url,
+    url: absoluteUrl("/"),
     siteName: SITE.name,
     title: defaultTitle,
     description: defaultDescription,
+    images: [
+      {
+        url: defaultOgImageUrl,
+        width: 1920,
+        height: 1440,
+        alt: `${SITE.name} profesyonel temizlik hizmetleri`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
+    images: [defaultOgImageUrl],
   },
   robots: {
     index: true,

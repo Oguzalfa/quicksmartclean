@@ -550,6 +550,7 @@ button:hover .arrow-shift {
   transform: none;
   font-weight: 400;
   text-wrap: normal;
+  text-transform: uppercase;
 }
 
 .hero-title-line {

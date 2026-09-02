@@ -11,7 +11,7 @@ import {
 } from "@/lib/articles";
 import { IMAGES, type ImageKey } from "@/lib/images";
 import { createPageMetadata } from "@/lib/metadata";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SEO_IDS } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -47,24 +47,29 @@ export default async function ArticleDetailPage({ params }: Props) {
   const image = getImageFromPath(article.featuredImage);
   const related = getRelatedArticles(slug);
 
+  const pageUrl = absoluteUrl(`/makaleler/${slug}`);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${pageUrl}#blogposting`,
     headline: article.title,
     description: article.description,
-    image: `${SITE.url}${article.featuredImage}`,
+    image: absoluteUrl(article.featuredImage),
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     author: {
       "@type": "Organization",
+      "@id": SEO_IDS.organization,
       name: article.author,
     },
     publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
+      "@id": SEO_IDS.organization,
     },
-    mainEntityOfPage: `${SITE.url}/makaleler/${slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
   };
 
   return (

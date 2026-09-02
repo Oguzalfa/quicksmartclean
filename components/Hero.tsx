@@ -63,11 +63,10 @@ export function Hero() {
           </p>
 
           <h1 className="hero-title font-serif">
-            <span className="hero-title-line">HER ALANDA</span>
-            <span className="hero-title-line hero-title-accent">
-              <span className="hero-title-word text-cream">KUSURSUZ</span>{" "}
-              <span className="hero-title-word text-gold">STANDART</span>
-            </span>
+            Her Alanda
+            <br />
+            <span className="hero-title-word text-cream">Kusursuz</span>{" "}
+            <span className="hero-title-word text-gold">Standart</span>
           </h1>
 
           <p

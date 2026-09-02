@@ -10,13 +10,28 @@ export const SITE = {
   whatsappNumber: "905318435058",
   whatsappInfoText:
     "Merhaba Quick Smart Clean, kurumsal temizlik hizmetleriniz hakkında teklif almak istiyorum.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://quicksmartclean.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.quicksmartclean.com",
+  email: "info@quicksmartclean.com",
   locale: "tr_TR",
+  ogImage: "/images/quick-smart-clean-hotel.jpeg",
   social: {
     instagram: "",
     facebook: "",
   },
 } as const;
+
+export const SEO_IDS = {
+  organization: `${SITE.url}/#organization`,
+  website: `${SITE.url}/#website`,
+  localBusiness: `${SITE.url}/#localbusiness`,
+} as const;
+
+export function absoluteUrl(path: string = "") {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+  return `${SITE.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export function whatsappUrl(text: string = SITE.whatsappInfoText) {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(text)}`;

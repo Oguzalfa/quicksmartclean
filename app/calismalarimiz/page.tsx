@@ -21,6 +21,9 @@ export default function WorksPage() {
               { label: "Çalışmalarımız" },
             ]}
           />
+          <h1 className="mt-6 max-w-3xl font-serif text-[clamp(2.4rem,5vw,4rem)] text-cream">
+            Çalışmalarımız
+          </h1>
         </div>
       </section>
       <OperationsGallery variant="full" />

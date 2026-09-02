@@ -6,7 +6,7 @@ import { getArticleBySlug } from "@/lib/articles";
 import { createPageMetadata } from "@/lib/metadata";
 import { getAllServiceSlugs, getServiceBySlug } from "@/lib/services-data";
 import { getSectorBySlug } from "@/lib/sectors-data";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SEO_IDS, SITE } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -43,8 +43,10 @@ export default async function ServiceDetailPage({ params }: Props) {
     "@type": "Service",
     name: service.title,
     description: service.description,
+    url: absoluteUrl(`/hizmetler/${slug}`),
     provider: {
       "@type": "Organization",
+      "@id": SEO_IDS.organization,
       name: SITE.name,
       telephone: SITE.phoneE164,
       url: SITE.url,
