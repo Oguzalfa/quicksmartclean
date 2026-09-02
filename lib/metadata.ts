@@ -47,3 +47,49 @@ export function createPageMetadata({
 }
 
 export const defaultOgImageUrl = defaultOgImage;
+
+export function createArticleMetadata({
+  title,
+  description,
+  path,
+  image,
+  publishedAt,
+  updatedAt,
+  author,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  publishedAt: string;
+  updatedAt: string;
+  author: string;
+}): Metadata {
+  const base = createPageMetadata({ title, description, path, image });
+  const canonical = absoluteUrl(path);
+  const ogImage = image ? absoluteUrl(image) : defaultOgImage;
+
+  return {
+    ...base,
+    openGraph: {
+      ...base.openGraph,
+      type: "article",
+      publishedTime: publishedAt,
+      modifiedTime: updatedAt,
+      authors: [author],
+      images: [
+        {
+          url: ogImage,
+          width: 1920,
+          height: 1440,
+          alt: `${SITE.name} profesyonel temizlik hizmetleri`,
+        },
+      ],
+      url: canonical,
+    },
+    twitter: {
+      ...base.twitter,
+      images: [ogImage],
+    },
+  };
+}

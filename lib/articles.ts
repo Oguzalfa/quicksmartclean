@@ -14,6 +14,9 @@ export type ArticleFrontmatter = {
   featuredImage: string;
   featuredImageAlt: string;
   keywords: string[];
+  seoTitle?: string;
+  breadcrumbLabel?: string;
+  relatedSlugs?: string[];
   featured?: boolean;
   draft?: boolean;
 };
@@ -77,10 +80,49 @@ export function getRelatedArticles(slug: string, limit = 3) {
   const current = getArticleBySlug(slug);
   if (!current) return [];
 
+  if (current.relatedSlugs?.length) {
+    return current.relatedSlugs
+      .map((relatedSlug) => getArticleBySlug(relatedSlug))
+      .filter((article): article is Article => article !== undefined)
+      .slice(0, limit);
+  }
+
   return getAllArticles()
     .filter(
       (article) =>
         article.slug !== slug && article.category === current.category,
     )
     .slice(0, limit);
+}
+
+export type ArticleFaq = {
+  question: string;
+  answer: string;
+};
+
+function stripMarkdownInline(text: string) {
+  return text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .trim();
+}
+
+export function extractFaqsFromContent(content: string): ArticleFaq[] {
+  const faqSection = content.split("## Sık Sorulan Sorular")[1];
+  if (!faqSection) return [];
+
+  return faqSection
+    .split("### ")
+    .slice(1)
+    .map((block) => {
+      const [questionLine, ...answerLines] = block.split("\n");
+      const question = stripMarkdownInline(questionLine ?? "");
+      const answer = stripMarkdownInline(
+        answerLines.join("\n").split("\n## ")[0] ?? "",
+      );
+      return { question, answer };
+    })
+    .filter((faq) => faq.question && faq.answer);
 }

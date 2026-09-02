@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleBody } from "@/components/ArticleBody";
+import { ArticleCard } from "@/components/ArticleCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SmartImage } from "@/components/SmartImage";
 import { SiteLayout } from "@/components/SiteLayout";
 import {
+  extractFaqsFromContent,
   getAllArticles,
   getArticleBySlug,
   getRelatedArticles,
 } from "@/lib/articles";
 import { IMAGES, type ImageKey } from "@/lib/images";
-import { createPageMetadata } from "@/lib/metadata";
+import { createArticleMetadata } from "@/lib/metadata";
 import { absoluteUrl, SEO_IDS } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -31,11 +33,14 @@ export async function generateMetadata({ params }: Props) {
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
-  return createPageMetadata({
-    title: article.title,
+  return createArticleMetadata({
+    title: article.seoTitle ?? article.title,
     description: article.description,
     path: `/makaleler/${slug}`,
     image: article.featuredImage,
+    publishedAt: article.publishedAt,
+    updatedAt: article.updatedAt,
+    author: article.author,
   });
 }
 
@@ -46,30 +51,78 @@ export default async function ArticleDetailPage({ params }: Props) {
 
   const image = getImageFromPath(article.featuredImage);
   const related = getRelatedArticles(slug);
+  const faqs = extractFaqsFromContent(article.content);
+  const breadcrumbLabel = article.breadcrumbLabel ?? article.title;
 
   const pageUrl = absoluteUrl(`/makaleler/${slug}`);
 
+  const jsonLdGraph = [
+    {
+      "@type": "BlogPosting",
+      "@id": `${pageUrl}#blogposting`,
+      headline: article.title,
+      description: article.description,
+      image: absoluteUrl(article.featuredImage),
+      datePublished: article.publishedAt,
+      dateModified: article.updatedAt,
+      author: {
+        "@type": "Organization",
+        "@id": SEO_IDS.organization,
+        name: article.author,
+      },
+      publisher: {
+        "@id": SEO_IDS.organization,
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": pageUrl,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Ana Sayfa",
+          item: absoluteUrl("/"),
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Bilgi Merkezi",
+          item: absoluteUrl("/makaleler"),
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: breadcrumbLabel,
+          item: pageUrl,
+        },
+      ],
+    },
+    ...(faqs.length > 0
+      ? [
+          {
+            "@type": "FAQPage",
+            "@id": `${pageUrl}#faq`,
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          },
+        ]
+      : []),
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": `${pageUrl}#blogposting`,
-    headline: article.title,
-    description: article.description,
-    image: absoluteUrl(article.featuredImage),
-    datePublished: article.publishedAt,
-    dateModified: article.updatedAt,
-    author: {
-      "@type": "Organization",
-      "@id": SEO_IDS.organization,
-      name: article.author,
-    },
-    publisher: {
-      "@id": SEO_IDS.organization,
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": pageUrl,
-    },
+    "@graph": jsonLdGraph,
   };
 
   return (
@@ -84,13 +137,13 @@ export default async function ArticleDetailPage({ params }: Props) {
             items={[
               { label: "Ana Sayfa", href: "/" },
               { label: "Bilgi Merkezi", href: "/makaleler" },
-              { label: article.title },
+              { label: breadcrumbLabel },
             ]}
           />
           <p className="mt-6 text-[0.72rem] tracking-[0.18em] text-gold uppercase">
             {article.category}
           </p>
-          <h1 className="mt-4 font-serif text-[clamp(2.2rem,4.5vw,3.6rem)] text-cream">
+          <h1 className="mt-4 font-serif text-[clamp(2rem,4.5vw,3.6rem)] leading-[1.08] text-cream">
             {article.title}
           </h1>
           <p className="mt-5 text-lg text-muted">{article.description}</p>
@@ -106,7 +159,7 @@ export default async function ArticleDetailPage({ params }: Props) {
           {image && (
             <div className="mt-10">
               <SmartImage
-                image={image}
+                image={{ ...image, alt: article.featuredImageAlt || image.alt }}
                 aspectRatio="16/10"
                 sizes="(max-width: 768px) 100vw, 720px"
                 priority
@@ -121,15 +174,11 @@ export default async function ArticleDetailPage({ params }: Props) {
           {related.length > 0 && (
             <div className="mt-14 border-t border-line-white pt-10">
               <h2 className="font-serif text-2xl text-cream">İlgili Makaleler</h2>
-              <ul className="mt-4 space-y-3">
+              <div className="mt-8 grid gap-10 md:grid-cols-2 lg:grid-cols-1">
                 {related.map((item) => (
-                  <li key={item.slug}>
-                    <Link href={`/makaleler/${item.slug}`} className="text-gold hover:underline">
-                      {item.title}
-                    </Link>
-                  </li>
+                  <ArticleCard key={item.slug} article={item} />
                 ))}
-              </ul>
+              </div>
             </div>
           )}
 

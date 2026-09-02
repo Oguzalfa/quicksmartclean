@@ -1093,6 +1093,14 @@ button:hover .arrow-shift {
   color: var(--gold-light);
 }
 
+.article-table-wrap {
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-callout strong {
+  color: var(--gold);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
