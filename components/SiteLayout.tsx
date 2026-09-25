@@ -8,13 +8,15 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
     <>
       <a
         href="#icerik"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:bg-gold focus:px-4 focus:py-2 focus:text-bg"
+        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:left-3 focus-visible:z-[100] focus-visible:bg-gold focus-visible:px-4 focus-visible:py-2 focus-visible:text-bg"
       >
         İçeriğe geç
       </a>
       <Header />
-      <div id="icerik" className="grain-overlay fixed inset-0 z-[1] pointer-events-none" aria-hidden="true" />
-      <main className="relative z-[2]">{children}</main>
+      <div className="grain-overlay fixed inset-0 z-[1] pointer-events-none" aria-hidden="true" />
+      <main id="icerik" tabIndex={-1} className="relative z-[2] outline-none">
+        {children}
+      </main>
       <Footer />
       <MobileContactBar />
       <QuotePanel />
