@@ -1,5 +1,6 @@
 import { FacebookIcon, InstagramIcon, Logo, WhatsAppIcon } from "@/components/Logo";
 import Link from "next/link";
+import { ConsentPreferencesButton } from "@/components/ConsentPreferencesButton";
 import { NAV, SITE, whatsappUrl } from "@/lib/site";
 
 export function Footer() {
@@ -49,9 +50,10 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <p className="site-shell-wide mt-10 border-t border-line-white pt-6 text-center text-sm text-muted">
-        © 2026 Quick Smart Clean. Tüm hakları saklıdır.
-      </p>
+      <div className="site-shell-wide mt-10 flex flex-col items-center gap-2 border-t border-line-white pt-6 text-center text-sm text-muted md:flex-row md:justify-center md:gap-6">
+        <p>© 2026 Quick Smart Clean. Tüm hakları saklıdır.</p>
+        <ConsentPreferencesButton />
+      </div>
     </footer>
   );
 }

@@ -1,3 +1,5 @@
+import { getAnalyticsConsent } from "@/lib/consent";
+
 export type AnalyticsEventName =
   | "phone_click"
   | "whatsapp_click"
@@ -29,6 +31,7 @@ export const AI_SOURCE_HOSTS = [
 // Params must stay free of personal data: no names, phone numbers, e-mails or free text.
 export function trackEvent(name: AnalyticsEventName, params: AnalyticsParams = {}) {
   if (typeof window === "undefined") return;
+  if (getAnalyticsConsent() !== "granted") return;
   const w = window as AnalyticsWindow;
   const payload = Object.fromEntries(
     Object.entries({ ...params, page_path: window.location.pathname }).filter(

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
+import { ConsentBanner } from "@/components/ConsentBanner";
 import { JsonLd } from "@/components/JsonLd";
 import { QuotePanelProvider } from "@/contexts/QuotePanelContext";
 import { defaultOgImageUrl } from "@/lib/metadata";
@@ -103,6 +104,7 @@ export default function RootLayout({
           <JsonLd />
           {children}
           <Analytics />
+          <ConsentBanner />
         </QuotePanelProvider>
       </body>
     </html>
