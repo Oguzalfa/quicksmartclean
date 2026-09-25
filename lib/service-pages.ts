@@ -37,7 +37,7 @@ export const SECTOR_PAGES: Record<string, ServicePageContent> = {
   restoranlar: {
     seoTitle: "İstanbul Restoran ve Mutfak Temizliği",
     metaDescription:
-      "İstanbul'da restoran, salon ve endüstriyel mutfaklar için buhar destekli yüzey temizliği, makineli zemin temizliği, tek seferlik ve periyodik hizmet. Keşif ve yazılı kapsamla teklif alın.",
+      "İstanbul’da restoran ve endüstriyel mutfak temizliği. Buhar destekli detaylı temizlik, makineli zemin temizliği ve periyodik hizmet için teklif alın.",
     h1: "İstanbul Restoran ve Endüstriyel Mutfak Temizliği",
     serviceName: "Restoran ve Endüstriyel Mutfak Temizliği",
     intro: [
