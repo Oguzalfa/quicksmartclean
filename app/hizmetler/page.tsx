@@ -49,7 +49,7 @@ export default function ServicesPage() {
                   href={`/hizmetler/${service.slug}`}
                   className="mt-6 inline-flex min-h-11 items-center text-[0.74rem] tracking-[0.14em] text-gold uppercase"
                 >
-                  Detayları İncele
+                  {service.title} Detayları
                 </Link>
               </article>
             ))}

@@ -39,6 +39,7 @@ export function Contact() {
         <Reveal delay={220}>
           <a
             href={SITE.phoneTel}
+            data-track-location="contact_section"
             className="mt-6 inline-block font-serif text-[clamp(1.5rem,3vw,2.2rem)] text-gold"
           >
             {SITE.phoneDisplay}

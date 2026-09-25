@@ -16,9 +16,6 @@ export function Logo({ className, compact = false }: LogoProps) {
       )}
       aria-label="Quick Smart Clean ana sayfa"
     >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center text-gold transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105">
-        <VillaMark />
-      </span>
       <span className="flex min-w-0 flex-col leading-none">
         <span className="font-serif text-[clamp(0.95rem,3.2vw,1.15rem)] font-medium tracking-[0.06em]">
           <span className="text-cream">QUICK</span>{" "}
@@ -31,32 +28,6 @@ export function Logo({ className, compact = false }: LogoProps) {
         )}
       </span>
     </Link>
-  );
-}
-
-function VillaMark() {
-  return (
-    <svg
-      viewBox="0 0 40 40"
-      className="h-8 w-8"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M6 18.5 20 7l14 11.5"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9.5 18.5v13.5h21V18.5"
-        stroke="currentColor"
-        strokeWidth="1.3"
-      />
-      <path d="M6 18.5h28" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M17 32V24.5h6V32" stroke="currentColor" strokeWidth="1.3" />
-      <path d="M13.5 23.5h3M23.5 23.5h3" stroke="currentColor" strokeWidth="1.3" />
-    </svg>
   );
 }
 

@@ -50,7 +50,7 @@ export function SectorShowcase() {
                       href={`/sektorler/${sector.slug}`}
                       className="mt-6 inline-flex min-h-11 items-center gap-2 text-[0.74rem] tracking-[0.14em] text-gold uppercase"
                     >
-                      Hizmeti İncele
+                      {sector.shortTitle} Temizliği
                       <ArrowRight className="arrow-shift h-4 w-4" strokeWidth={1.6} />
                     </Link>
                   </div>

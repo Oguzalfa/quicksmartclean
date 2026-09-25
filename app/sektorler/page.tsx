@@ -49,7 +49,7 @@ export default function SectorsPage() {
                   href={`/sektorler/${sector.slug}`}
                   className="mt-6 inline-flex min-h-11 items-center text-[0.74rem] tracking-[0.14em] text-gold uppercase"
                 >
-                  Sektörel Çözümleri İncele
+                  {sector.shortTitle} Temizliği
                 </Link>
               </article>
             ))}

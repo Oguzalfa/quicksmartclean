@@ -5,6 +5,7 @@ import { Contact } from "@/components/Contact";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { OperationsGallery } from "@/components/OperationsGallery";
+import { PriorityServices } from "@/components/PriorityServices";
 import { Process } from "@/components/Process";
 import { SectorShowcase } from "@/components/SectorShowcase";
 import { Services } from "@/components/Services";
@@ -16,6 +17,7 @@ export default function Home() {
     <SiteLayout>
       <Hero />
       <Marquee />
+      <PriorityServices />
       <BrandStatement />
       <About />
       <SectorShowcase />

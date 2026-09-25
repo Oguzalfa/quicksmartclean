@@ -132,16 +132,17 @@ export const PROCESS_STEPS = [
   },
 ] as const;
 
-export const SECTOR_OPTIONS = [
-  { value: "kurumsal", label: "Kurumsal Ofis" },
-  { value: "saglik", label: "Hastane/Sağlık Kuruluşu" },
-  { value: "kafe", label: "Kafe/Kahve Zinciri" },
-  { value: "restoran", label: "Restoran" },
-  { value: "havacilik", label: "Havacılık" },
-  { value: "yat-marina", label: "Yat/Marina" },
-  { value: "otel", label: "Otel" },
-  { value: "avm", label: "AVM/Mağaza" },
-  { value: "villa", label: "Villa/Rezidans" },
+export const QUOTE_SERVICE_OPTIONS = [
+  { value: "restoran-mutfak", label: "Restoran / endüstriyel mutfak temizliği" },
+  { value: "ofis-kurumsal", label: "Ofis / kurumsal tesis temizliği" },
+  { value: "zemin", label: "Zemin temizliği" },
+  { value: "insaat-sonrasi", label: "İnşaat / tadilat sonrası temizlik" },
+  { value: "kafe", label: "Kafe / kahve zinciri temizliği" },
+  { value: "otel", label: "Otel / konaklama temizliği" },
+  { value: "saglik", label: "Sağlık kuruluşu temizliği" },
+  { value: "villa-rezidans", label: "Villa / rezidans temizliği" },
+  { value: "havacilik", label: "Uçak / havacılık temizliği" },
+  { value: "yat-tekne", label: "Yat / tekne temizliği" },
   { value: "diger", label: "Diğer" },
 ] as const;
 
@@ -150,13 +151,24 @@ export const FREQUENCY_OPTIONS = [
   { value: "gunluk", label: "Günlük" },
   { value: "haftalik", label: "Haftalık" },
   { value: "aylik", label: "Aylık" },
-  { value: "periyodik", label: "Periyodik" },
-  { value: "proje", label: "Proje bazlı" },
+  { value: "belirsiz", label: "Henüz karar vermedim" },
 ] as const;
 
-export const LOCATION_OPTIONS = [
-  { value: "tek", label: "Tek lokasyon" },
-  { value: "coklu", label: "Çoklu lokasyon" },
+export const TIMING_OPTIONS = [
+  { value: "acil", label: "Bu hafta" },
+  { value: "iki-hafta", label: "Önümüzdeki 2 hafta" },
+  { value: "bir-ay", label: "Bu ay içinde" },
+  { value: "esnek", label: "Tarih esnek" },
+] as const;
+
+export const ISTANBUL_DISTRICTS = [
+  "Adalar", "Arnavutköy", "Ataşehir", "Avcılar", "Bağcılar", "Bahçelievler",
+  "Bakırköy", "Başakşehir", "Bayrampaşa", "Beşiktaş", "Beykoz", "Beylikdüzü",
+  "Beyoğlu", "Büyükçekmece", "Çatalca", "Çekmeköy", "Esenler", "Esenyurt",
+  "Eyüpsultan", "Fatih", "Gaziosmanpaşa", "Güngören", "Kadıköy", "Kağıthane",
+  "Kartal", "Küçükçekmece", "Maltepe", "Pendik", "Sancaktepe", "Sarıyer",
+  "Silivri", "Sultanbeyli", "Sultangazi", "Şile", "Şişli", "Tuzla",
+  "Ümraniye", "Üsküdar", "Zeytinburnu",
 ] as const;
 
 export const ARTICLE_CATEGORIES = [

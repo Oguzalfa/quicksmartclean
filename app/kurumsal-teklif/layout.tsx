@@ -1,9 +1,9 @@
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "Kurumsal Teklif",
+  title: "Temizlik Teklifi Alın",
   description:
-    "Quick Smart Clean kurumsal temizlik hizmetleri için teklif formu. Bilgilerinizi doldurun, WhatsApp üzerinden iletin.",
+    "İstanbul'da restoran, ofis, zemin ve inşaat sonrası temizlik için teklif formu. Hizmet, ilçe, alan ve zamanı paylaşın; WhatsApp üzerinden iletin.",
   path: "/kurumsal-teklif",
 });
 

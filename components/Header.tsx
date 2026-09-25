@@ -70,7 +70,7 @@ export function Header() {
           <button
             type="button"
             className="header-cta"
-            onClick={openPanel}
+            onClick={() => openPanel()}
           >
             Teklif Al
           </button>

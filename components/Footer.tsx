@@ -6,7 +6,17 @@ export function Footer() {
   return (
     <footer className="border-t border-line-white bg-[#050505] pt-12 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-10">
       <div className="site-shell-wide grid gap-10 md:grid-cols-3 md:items-start">
-        <Logo />
+        <div className="space-y-4">
+          <Logo />
+          <div className="space-y-1 text-sm" data-track-location="footer">
+            <a href={SITE.phoneTel} className="block w-fit text-cream hover:text-gold">
+              {SITE.phoneDisplay}
+            </a>
+            <a href={`mailto:${SITE.email}`} className="block w-fit break-all text-muted hover:text-cream">
+              {SITE.email}
+            </a>
+          </div>
+        </div>
         <nav
           className="flex flex-col gap-3 md:items-center"
           aria-label="Footer menü"
@@ -21,7 +31,7 @@ export function Footer() {
             </Link>
           ))}
         </nav>
-        <div className="flex gap-3 md:justify-end">
+        <div className="flex gap-3 md:justify-end" data-track-location="footer">
           <Social label="Instagram hesabı yakında" href={SITE.social.instagram}>
             <InstagramIcon className="h-5 w-5" />
           </Social>

@@ -68,14 +68,14 @@ export const SECTORS: SectorItem[] = [
     slug: "restoranlar",
     num: "04",
     title: "Restoranlar",
-    shortTitle: "Restoranlar",
+    shortTitle: "Restoran & Mutfak",
     summary:
-      "Mutfak dışı alanlar, salonlar ve yoğun kullanımlı yüzeyler için işletme düzenine özel çözümler.",
+      "Restoran salonu, endüstriyel mutfak, zemin ve derz için kapanış sonrası planlanan detay veya periyodik temizlik.",
     description:
-      "Restoranlarda salon, servis alanları ve endüstriyel mutfak bölgelerinde hijyen ve operasyon uyumunu gözeten temizlik planları oluşturuyoruz.",
+      "Restoranlarda salon, servis alanları ve endüstriyel mutfak bölgelerinde servis akışını aksatmayan, yüzeye uygun yöntemlerle planlanan temizlik hizmeti sunuyoruz.",
     imageKey: "commercialKitchen",
     keywords: ["restoran temizliği", "endüstriyel mutfak temizliği"],
-    relatedServiceSlugs: ["detayli-temizlik", "dezenfeksiyon-uygulamalari"],
+    relatedServiceSlugs: ["detayli-temizlik", "gunluk-periyodik-temizlik", "dezenfeksiyon-uygulamalari"],
     relatedArticleSlugs: ["restoran-endustriyel-mutfak-temizligi"],
     featured: true,
   },

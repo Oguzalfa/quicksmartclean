@@ -4,13 +4,26 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { PaymentNote } from "@/components/PaymentNote";
 import { useQuotePanel } from "@/contexts/QuotePanelContext";
 import { HERO_SLIDES } from "@/lib/site";
 
 export function Hero() {
   const [active, setActive] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [restMounted, setRestMounted] = useState(false);
   const { openPanel } = useQuotePanel();
+
+  useEffect(() => {
+    if (reducedMotion) return;
+    const mountRest = () => setRestMounted(true);
+    if (document.readyState === "complete") {
+      const timer = window.setTimeout(mountRest, 1500);
+      return () => window.clearTimeout(timer);
+    }
+    window.addEventListener("load", mountRest, { once: true });
+    return () => window.removeEventListener("load", mountRest);
+  }, [reducedMotion]);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -23,6 +36,7 @@ export function Hero() {
   useEffect(() => {
     if (reducedMotion) return;
     const timer = window.setInterval(() => {
+      setRestMounted(true);
       setActive((current) => (current + 1) % HERO_SLIDES.length);
     }, 6000);
     return () => window.clearInterval(timer);
@@ -38,15 +52,17 @@ export function Hero() {
             key={item.id}
             className={`hero-slide absolute inset-0 ${index === active ? "is-active" : ""}`}
           >
-            <Image
-              src={item.image.src}
-              alt={item.image.alt}
-              fill
-              priority={index === 0}
-              quality={90}
-              sizes="100vw"
-              className="hero-image"
-            />
+            {(index === 0 || restMounted || index === active) && (
+              <Image
+                src={item.image.src}
+                alt={item.image.alt}
+                fill
+                priority={index === 0}
+                quality={80}
+                sizes="100vw"
+                className="hero-image"
+              />
+            )}
           </div>
         ))}
       </div>
@@ -83,7 +99,7 @@ export function Hero() {
             className="hero-actions hero-rise"
             style={{ ["--d" as string]: "640ms" }}
           >
-            <button type="button" className="btn-primary" onClick={openPanel}>
+            <button type="button" className="btn-primary" onClick={() => openPanel()}>
               Kurumsal Teklif Alın
               <ArrowRight className="arrow-shift h-4 w-4" strokeWidth={1.6} />
             </button>
@@ -91,6 +107,9 @@ export function Hero() {
               Hizmet Alanlarını Keşfedin
               <ArrowRight className="arrow-shift h-4 w-4" strokeWidth={1.6} />
             </Link>
+          </div>
+          <div className="hero-rise mt-5" style={{ ["--d" as string]: "720ms" }}>
+            <PaymentNote />
           </div>
         </div>
       </div>

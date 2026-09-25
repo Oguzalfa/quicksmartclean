@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { QuotePanelProvider } from "@/contexts/QuotePanelContext";
 import { defaultOgImageUrl } from "@/lib/metadata";
@@ -20,9 +21,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 const defaultTitle =
-  "Quick Smart Clean | Kurumsal ve Profesyonel Temizlik Hizmetleri";
+  "Quick Smart Clean | İstanbul Kurumsal ve Profesyonel Temizlik";
 const defaultDescription =
-  "Quick Smart Clean; şirketler, hastaneler, kahve zincirleri, restoranlar, havacılık, marinalar, yatlar, oteller, villalar ve rezidanslar için profesyonel temizlik hizmetleri sunar.";
+  "Quick Smart Clean; İstanbul'da restoran ve endüstriyel mutfak, ofis ve kurumsal tesis, zemin ve inşaat sonrası temizliğin yanı sıra havacılık, yat ve otel temizliği hizmetleri sunar.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -98,6 +99,7 @@ export default function RootLayout({
         <QuotePanelProvider>
           <JsonLd />
           {children}
+          <Analytics />
         </QuotePanelProvider>
       </body>
     </html>

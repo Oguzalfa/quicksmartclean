@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import { WhatsAppIcon } from "@/components/Logo";
 import { useQuotePanel } from "@/contexts/QuotePanelContext";
@@ -10,16 +11,31 @@ import { SITE, whatsappUrl } from "@/lib/site";
 export function MobileContactBar() {
   const [visible, setVisible] = useState(false);
   const { openPanel } = useQuotePanel();
+  const pathname = usePathname();
+  const hiddenOnPage = pathname === "/kurumsal-teklif";
 
   useEffect(() => {
     const hero = document.getElementById("anasayfa");
     const footer = document.querySelector("footer");
-    if (!hero) return;
 
-    let heroVisible = true;
+    let heroVisible = Boolean(hero);
     let footerVisible = false;
+    let scrolledPastTop = false;
 
-    const update = () => setVisible(!heroVisible && !footerVisible);
+    const update = () =>
+      setVisible(!heroVisible && !footerVisible && (hero !== null || scrolledPastTop));
+
+    const onScroll = () => {
+      const next = window.scrollY > 320;
+      if (next !== scrolledPastTop) {
+        scrolledPastTop = next;
+        update();
+      }
+    };
+    if (!hero) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,10 +48,15 @@ export function MobileContactBar() {
       { threshold: 0.12 },
     );
 
-    observer.observe(hero);
+    if (hero) observer.observe(hero);
     if (footer) observer.observe(footer);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
+
+  if (hiddenOnPage) return null;
 
   return (
     <div
@@ -45,8 +66,9 @@ export function MobileContactBar() {
       )}
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       aria-hidden={!visible}
+      inert={!visible}
     >
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3" data-track-location="mobile_bar">
         <a
           href={SITE.phoneTel}
           className="inline-flex min-h-12 items-center justify-center gap-1.5 border-r border-line-white text-[0.68rem] font-semibold tracking-[0.08em] text-cream uppercase"
@@ -66,7 +88,7 @@ export function MobileContactBar() {
         <button
           type="button"
           className="inline-flex min-h-12 items-center justify-center text-[0.68rem] font-semibold tracking-[0.08em] text-cream uppercase"
-          onClick={openPanel}
+          onClick={() => openPanel()}
         >
           Teklif Al
         </button>

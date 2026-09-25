@@ -79,13 +79,13 @@ export function Services() {
                             href={`/hizmetler/${service.slug}`}
                             className="inline-flex min-h-11 items-center gap-2 text-[0.74rem] tracking-[0.14em] text-gold uppercase"
                           >
-                            Detayları İncele
+                            {service.title} Detayları
                             <ArrowRight className="arrow-shift h-4 w-4" strokeWidth={1.6} />
                           </Link>
                           <button
                             type="button"
                             className="inline-flex min-h-11 items-center gap-2 text-[0.74rem] tracking-[0.14em] text-muted uppercase hover:text-gold"
-                            onClick={openPanel}
+                            onClick={() => openPanel()}
                           >
                             Teklif Alın
                           </button>

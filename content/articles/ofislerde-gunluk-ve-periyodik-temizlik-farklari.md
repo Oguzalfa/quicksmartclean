@@ -4,7 +4,7 @@ slug: ofislerde-gunluk-ve-periyodik-temizlik-farklari
 description: "Ofislerde günlük temizlik ile periyodik derin temizlik arasındaki kapsam, sıklık ve maliyet farklarını öğrenerek doğru planı oluşturun."
 category: Ofis ve Tesis Yönetimi
 publishedAt: "2026-08-22"
-updatedAt: "2026-08-22"
+updatedAt: "2026-09-25"
 author: "Quick Smart Clean Editör Ekibi"
 featuredImage: /images/quick-smart-clean-cafe.jpeg
 featuredImageAlt: "Quick Smart Clean ekibi ofis ve kafe alanında profesyonel temizlik yapıyor"
@@ -61,6 +61,8 @@ Eksik periyodik bakım, günlük temizlik süresini uzatır; çünkü biriken ki
 ## Çalışan Deneyimi ve İletişim
 
 Temizlik planı çalışanlara şeffaf iletilmelidir. Örneğin periyodik halı temizliği gününde geçici koku veya nem olabileceği önceden duyurulmalıdır. Geri bildirim kanalı (helpdesk veya tesis yönetimi hattı) açık tutulduğunda plan, gerçek ihtiyaçlara göre güncellenir.
+
+İstanbul'daki ofisiniz için günlük ve periyodik çalışmayı birlikte planlamak isterseniz [ofis ve kurumsal tesis temizliği](/hizmetler/kurumsal-tesis-temizligi) sayfamızda kapsamı ve teslim sürecini inceleyebilirsiniz.
 
 ## Sık Sorulan Sorular
 

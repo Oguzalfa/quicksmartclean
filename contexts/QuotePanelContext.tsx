@@ -9,9 +9,14 @@ import {
   type ReactNode,
 } from "react";
 
+type OpenPanelOptions = {
+  service?: string;
+};
+
 type QuotePanelContextValue = {
   open: boolean;
-  openPanel: () => void;
+  initialService: string;
+  openPanel: (options?: OpenPanelOptions) => void;
   closePanel: () => void;
 };
 
@@ -19,13 +24,17 @@ const QuotePanelContext = createContext<QuotePanelContextValue | null>(null);
 
 export function QuotePanelProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [initialService, setInitialService] = useState("");
 
-  const openPanel = useCallback(() => setOpen(true), []);
+  const openPanel = useCallback((options?: OpenPanelOptions) => {
+    setInitialService(options?.service ?? "");
+    setOpen(true);
+  }, []);
   const closePanel = useCallback(() => setOpen(false), []);
 
   const value = useMemo(
-    () => ({ open, openPanel, closePanel }),
-    [open, openPanel, closePanel],
+    () => ({ open, initialService, openPanel, closePanel }),
+    [open, initialService, openPanel, closePanel],
   );
 
   return (

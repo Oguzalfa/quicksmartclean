@@ -1,5 +1,3 @@
-import type { ImageKey } from "@/lib/images";
-
 export type ServiceItem = {
   slug: string;
   num: string;
