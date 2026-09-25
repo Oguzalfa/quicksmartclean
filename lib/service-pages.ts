@@ -215,6 +215,14 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Zemin türleri ve periyodik detay çalışmalarının kapsamı",
         ],
       },
+      {
+        heading: "Kapsam Dışı İşler",
+        bullets: [
+          "Teknik bakım, onarım ve tesisat işleri",
+          "Havalandırma kanalı temizliği ve haşere kontrolü",
+          "Yüksek erişim gerektiren dış cephe camları (ayrı keşifle değerlendirilir)",
+        ],
+      },
     ],
     faqs: [
       {
@@ -291,12 +299,19 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
         ],
       },
       {
-        heading: "Teklif Koşulları",
+        heading: "Tek Seferlik veya Aşamalı Uygulama",
+        paragraphs: [
+          "İnşaat sonrası temizlik çoğunlukla alan teslim edilmeden önce tek seferlik yapılır. Bölüm bölüm teslim edilen büyük projelerde uygulama aşamalara ayrılarak planlanabilir. Alan kullanıma açıldıktan sonra düzenli temizlik isteyen işletmeler için periyodik ofis ve tesis temizliği ayrıca teklif edilir.",
+        ],
+      },
+      {
+        heading: "Teklif Koşulları ve Fiyatı Etkileyenler",
         paragraphs: [
           "Temizliğin kalıcı sonuç vermesi için kaba işlerin tamamlanmış olması gerekir. Teklif öncesinde şu bilgileri netleştiririz:",
         ],
         bullets: [
           "Alanın yaklaşık büyüklüğü ve oda/bölüm sayısı",
+          "Boya, harç ve silikon kalıntılarının yoğunluğu; cam ve doğrama miktarı",
           "Kaba işlerin bitip bitmediği, başka ekiplerin çalışmaya devam edip etmediği",
           "Elektrik ve suyun kullanılabilir olup olmadığı",
           "Teslim tarihi ve çalışılabilecek saatler",

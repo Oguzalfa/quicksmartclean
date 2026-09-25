@@ -12,6 +12,9 @@ export const SITE = {
     "Merhaba Quick Smart Clean, kurumsal temizlik hizmetleriniz hakkında teklif almak istiyorum.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.quicksmartclean.com",
   email: "info@quicksmartclean.com",
+  areaServed: "İstanbul",
+  paymentNote: "Kredi kartıyla ödeme imkânı",
+  paymentAccepted: "Kredi kartı",
   locale: "tr_TR",
   ogImage: "/images/quick-smart-clean-hotel.jpeg",
   social: {

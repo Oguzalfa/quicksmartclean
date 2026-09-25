@@ -1,4 +1,4 @@
-import { absoluteUrl, SEO_IDS } from "@/lib/site";
+import { absoluteUrl, SEO_IDS, SITE } from "@/lib/site";
 
 export type BreadcrumbEntry = { name: string; path: string };
 
@@ -34,7 +34,7 @@ export function serviceJsonLd({
     url: pageUrl,
     image: image ? absoluteUrl(image) : undefined,
     provider: { "@id": SEO_IDS.localBusiness },
-    areaServed: { "@type": "City", name: "İstanbul" },
+    areaServed: { "@type": "City", name: SITE.areaServed },
   };
 }
 

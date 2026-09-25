@@ -13,7 +13,8 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "OAI-SearchBot",
-        allow: "/",
+        allow: isProduction ? "/" : undefined,
+        disallow: isProduction ? ["/api/"] : "/",
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),

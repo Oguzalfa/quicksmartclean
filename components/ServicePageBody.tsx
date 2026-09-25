@@ -71,10 +71,12 @@ export function ServicePageBody({ content }: { content: ServicePageContent }) {
       )}
 
       <section className="mt-14 border border-line-white p-6 md:p-8">
-        <h2 className="font-serif text-2xl text-cream">Keşif ve teklif için bize ulaşın</h2>
+        <h2 className="font-serif text-2xl text-cream">Teklif Nasıl İstenir?</h2>
         <p className="mt-3 text-muted">
-          Hizmet türünü, ilçeyi, yaklaşık alanı ve uygun zamanı paylaşın; kapsamı
-          birlikte netleştirelim.
+          Teklif formunu doldurun ya da telefon veya WhatsApp üzerinden yazın.
+          Hizmet türü, ilçe, yaklaşık alan, istenen sıklık ve uygun zamanı
+          paylaşmanız yeterli. Kesin fiyat, gerekli durumlarda keşif sonrası
+          yazılı kapsamla verilir.
         </p>
         <ContactActions service={content.quoteService} trackLocation="service_footer" showPhone />
         <PaymentNote className="mt-5" />

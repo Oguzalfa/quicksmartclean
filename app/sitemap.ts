@@ -12,9 +12,9 @@ const STATIC_PAGES: { path: string; lastModified: string; priority: number }[] =
   { path: "/hizmetler", lastModified: "2026-09-25", priority: 0.8 },
   { path: "/sektorler", lastModified: "2026-09-25", priority: 0.8 },
   { path: "/kurumsal-teklif", lastModified: "2026-09-25", priority: 0.7 },
-  { path: "/iletisim", lastModified: "2026-09-02", priority: 0.7 },
-  { path: "/hakkimizda", lastModified: "2026-09-02", priority: 0.6 },
-  { path: "/calismalarimiz", lastModified: "2026-09-02", priority: 0.6 },
+  { path: "/iletisim", lastModified: "2026-09-25", priority: 0.7 },
+  { path: "/hakkimizda", lastModified: "2026-09-25", priority: 0.6 },
+  { path: "/calismalarimiz", lastModified: "2026-09-25", priority: 0.6 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

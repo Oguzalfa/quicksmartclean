@@ -1,5 +1,6 @@
 import { About } from "@/components/About";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BusinessFacts } from "@/components/BusinessFacts";
 import { SiteLayout } from "@/components/SiteLayout";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -27,6 +28,7 @@ export default function AboutPage() {
         </div>
       </section>
       <About />
+      <BusinessFacts />
     </SiteLayout>
   );
 }

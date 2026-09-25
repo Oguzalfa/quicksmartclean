@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BusinessFacts } from "@/components/BusinessFacts";
 import { Contact } from "@/components/Contact";
 import { SiteLayout } from "@/components/SiteLayout";
 import { createPageMetadata } from "@/lib/metadata";
@@ -6,7 +7,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "İletişim",
   description:
-    "Quick Smart Clean ile iletişime geçin. Kurumsal temizlik hizmetleri için teklif alın.",
+    "Quick Smart Clean iletişim bilgileri: telefon, WhatsApp ve e-posta. İstanbul'da restoran, ofis ve inşaat sonrası temizlik için teklif alın; kredi kartıyla ödeme yapılabilir.",
   path: "/iletisim",
 });
 
@@ -27,6 +28,7 @@ export default function ContactPage() {
         </div>
       </section>
       <Contact />
+      <BusinessFacts heading="İletişim ve Firma Bilgileri" />
     </SiteLayout>
   );
 }
