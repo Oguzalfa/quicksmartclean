@@ -14,7 +14,7 @@ export function JsonLd() {
         telephone: SITE.phoneE164,
         logo: {
           "@type": "ImageObject",
-          url: absoluteUrl("/icon.svg"),
+          url: absoluteUrl("/logo.png"),
         },
         image: absoluteUrl(SITE.ogImage),
         description:

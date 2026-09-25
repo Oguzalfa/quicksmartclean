@@ -32,7 +32,7 @@ export function PriorityServices() {
             id="oncelikli-hizmetler"
             className="mt-6 max-w-3xl font-serif text-[clamp(2rem,4vw,3.2rem)] leading-[1.08] font-normal text-cream"
           >
-            En Çok Talep Edilen Hizmetler
+            Öne Çıkan Temizlik Hizmetlerimiz
           </h2>
         </Reveal>
         <ul className="mt-12 grid gap-px border border-line-white bg-[rgba(255,255,255,0.09)] md:grid-cols-3">
