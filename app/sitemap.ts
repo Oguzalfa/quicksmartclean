@@ -8,12 +8,12 @@ import { absoluteUrl } from "@/lib/site";
 const CATALOG_DATE = "2026-09-01";
 
 const STATIC_PAGES: { path: string; lastModified: string; priority: number }[] = [
-  { path: "/", lastModified: "2026-09-25", priority: 1 },
-  { path: "/hizmetler", lastModified: "2026-09-25", priority: 0.8 },
+  { path: "/", lastModified: "2026-09-28", priority: 1 },
+  { path: "/hizmetler", lastModified: "2026-09-28", priority: 0.8 },
   { path: "/sektorler", lastModified: "2026-09-25", priority: 0.8 },
-  { path: "/kurumsal-teklif", lastModified: "2026-09-25", priority: 0.7 },
-  { path: "/iletisim", lastModified: "2026-09-25", priority: 0.7 },
-  { path: "/hakkimizda", lastModified: "2026-09-25", priority: 0.6 },
+  { path: "/kurumsal-teklif", lastModified: "2026-09-28", priority: 0.7 },
+  { path: "/iletisim", lastModified: "2026-09-28", priority: 0.7 },
+  { path: "/hakkimizda", lastModified: "2026-09-28", priority: 0.6 },
   { path: "/calismalarimiz", lastModified: "2026-09-25", priority: 0.6 },
 ];
 

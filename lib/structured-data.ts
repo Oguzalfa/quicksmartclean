@@ -1,4 +1,4 @@
-import { absoluteUrl, SEO_IDS, SITE } from "@/lib/site";
+import { absoluteUrl, AREA_SERVED, SEO_IDS } from "@/lib/site";
 
 export type BreadcrumbEntry = { name: string; path: string };
 
@@ -12,6 +12,35 @@ export function breadcrumbJsonLd(pageUrl: string, items: BreadcrumbEntry[]) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function webPageJsonLd({
+  pageUrl,
+  name,
+  description,
+  type = "WebPage",
+  mainEntityId,
+  hasBreadcrumb = true,
+}: {
+  pageUrl: string;
+  name: string;
+  description: string;
+  type?: "WebPage" | "CollectionPage" | "AboutPage" | "ContactPage";
+  mainEntityId?: string;
+  hasBreadcrumb?: boolean;
+}) {
+  return {
+    "@type": type,
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name,
+    description,
+    inLanguage: "tr-TR",
+    isPartOf: { "@id": SEO_IDS.website },
+    about: { "@id": SEO_IDS.organization },
+    ...(mainEntityId && { mainEntity: { "@id": mainEntityId } }),
+    ...(hasBreadcrumb && { breadcrumb: { "@id": `${pageUrl}#breadcrumb` } }),
   };
 }
 
@@ -30,11 +59,14 @@ export function serviceJsonLd({
     "@type": "Service",
     "@id": `${pageUrl}#service`,
     name,
+    serviceType: name,
     description,
     url: pageUrl,
     image: image ? absoluteUrl(image) : undefined,
     provider: { "@id": SEO_IDS.localBusiness },
-    areaServed: { "@type": "City", name: SITE.areaServed },
+    brand: { "@id": SEO_IDS.organization },
+    areaServed: AREA_SERVED,
+    mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
   };
 }
 

@@ -3,17 +3,46 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SiteLayout } from "@/components/SiteLayout";
 import { createPageMetadata } from "@/lib/metadata";
 import { SERVICES } from "@/lib/services-data";
+import { absoluteUrl } from "@/lib/site";
+import { breadcrumbJsonLd, graphJsonLd, webPageJsonLd } from "@/lib/structured-data";
 
-export const metadata = createPageMetadata({
-  title: "Hizmetler",
-  description:
-    "Quick Smart Clean kurumsal tesis temizliği, havacılık, yat, villa ve dezenfeksiyon hizmetleri sunar.",
-  path: "/hizmetler",
-});
+const title = "Temizlik Hizmetleri İstanbul";
+const description =
+  "İstanbul'da ofis, dükkan ve mağaza, restoran, inşaat sonrası, detaylı, buharlı, villa ve otel temizliği. Quick Smart Clean hizmetlerini inceleyin, teklif alın.";
+
+export const metadata = createPageMetadata({ title, description, path: "/hizmetler" });
+
+const pageUrl = absoluteUrl("/hizmetler");
+const jsonLd = graphJsonLd([
+  webPageJsonLd({ pageUrl, name: "Profesyonel Temizlik Hizmetleri", description, type: "CollectionPage" }),
+  breadcrumbJsonLd(pageUrl, [
+    { name: "Ana Sayfa", path: "/" },
+    { name: "Hizmetler", path: "/hizmetler" },
+  ]),
+  {
+    "@type": "ItemList",
+    "@id": `${pageUrl}#list`,
+    itemListElement: SERVICES.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
+      url: absoluteUrl(`/hizmetler/${service.slug}`),
+    })),
+  },
+]);
+
+const INTRO_LINKS = [
+  { href: "/hizmetler/kurumsal-tesis-temizligi", label: "ofis ve kurumsal tesis" },
+  { href: "/hizmetler/dukkan-magaza-temizligi", label: "dükkan ve mağaza" },
+  { href: "/sektorler/restoranlar", label: "restoran ve endüstriyel mutfak" },
+  { href: "/hizmetler/insaat-tadilat-sonrasi-temizlik", label: "inşaat ve tadilat sonrası" },
+  { href: "/hizmetler/villa-rezidans-temizligi", label: "villa ve rezidans" },
+] as const;
 
 export default function ServicesPage() {
   return (
     <SiteLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <section className="section-pad pt-32">
         <div className="site-shell-wide">
           <Breadcrumbs
@@ -26,8 +55,19 @@ export default function ServicesPage() {
             Profesyonel Temizlik Hizmetleri
           </h1>
           <p className="mt-5 max-w-2xl text-muted">
-            Kurumsal yapılardan havacılık ve denizcilik sektörüne kadar her
-            mekâna özel planlanan hizmet yetkinliklerimizi inceleyin.
+            Quick Smart Clean, İstanbul’da işletmeler ve yaşam alanları için
+            profesyonel temizlik hizmetleri sunar. Başlıca hizmetlerimiz{" "}
+            {INTRO_LINKS.map((link, index) => (
+              <span key={link.href}>
+                <Link href={link.href} className="text-gold underline-offset-4 hover:underline">
+                  {link.label}
+                </Link>
+                {index < INTRO_LINKS.length - 2 ? ", " : index === INTRO_LINKS.length - 2 ? " ve " : ""}
+              </span>
+            ))}{" "}
+            temizliğidir. Uygun yüzeylerde buharlı temizlik ve profesyonel zemin
+            makineleriyle çalışırız; kapsam her işte keşif veya ön değerlendirme
+            sonrasında yazılı olarak netleşir.
           </p>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2">

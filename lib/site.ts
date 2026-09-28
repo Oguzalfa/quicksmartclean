@@ -29,6 +29,12 @@ export const SEO_IDS = {
   localBusiness: `${SITE.url}/#localbusiness`,
 } as const;
 
+export const AREA_SERVED = {
+  "@type": "City",
+  name: SITE.areaServed,
+  sameAs: "https://www.wikidata.org/wiki/Q406",
+} as const;
+
 export function absoluteUrl(path: string = "") {
   if (path.startsWith("http://") || path.startsWith("https://")) {
     return path;
@@ -138,6 +144,9 @@ export const PROCESS_STEPS = [
 export const QUOTE_SERVICE_OPTIONS = [
   { value: "restoran-mutfak", label: "Restoran / endüstriyel mutfak temizliği" },
   { value: "ofis-kurumsal", label: "Ofis / kurumsal tesis temizliği" },
+  { value: "dukkan-magaza", label: "Dükkan / mağaza temizliği" },
+  { value: "detayli", label: "Detaylı temizlik" },
+  { value: "buharli", label: "Buharlı temizlik" },
   { value: "zemin", label: "Zemin temizliği" },
   { value: "insaat-sonrasi", label: "İnşaat / tadilat sonrası temizlik" },
   { value: "kafe", label: "Kafe / kahve zinciri temizliği" },

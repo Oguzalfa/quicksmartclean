@@ -214,10 +214,63 @@ export const SERVICES: ServiceItem[] = [
     relatedSectorSlugs: ["kurumsal-ofisler", "otel-konaklama", "villa-rezidans"],
     relatedArticleSlugs: ["profesyonel-temizlikte-kalite-kontrol-teslim-sureci"],
   },
+  {
+    slug: "buharli-temizlik",
+    num: "15",
+    title: "Buharlı Temizlik",
+    summary:
+      "Seramik, derz, paslanmaz çelik ve uygun zeminlerde yüksek sıcaklıkta buharla desteklenen detaylı temizlik.",
+    description:
+      "Buharlı temizlik; uygun yüzeylerde yağlı ve yapışkan kirleri yumuşatarak mekanik temizliği kolaylaştıran bir yöntemdir. Mutfak, ıslak alan, derz ve zemin uygulamalarında yüzey türüne göre tercih edilir; dezenfeksiyon uygulaması olarak sunulmaz.",
+    sectors: "Restoran, Ofis, Otel, Villa, Spor Salonu",
+    scope: "Seramik ve derz, paslanmaz yüzeyler, ıslak alanlar, uygun zeminler",
+    keywords: ["buharlı temizlik", "buhar destekli temizlik"],
+    relatedSectorSlugs: ["restoranlar", "otel-konaklama", "villa-rezidans"],
+    relatedArticleSlugs: ["banyo-islak-alan-temizliginde-dikkat-edilmesi-gerekenler"],
+  },
+  {
+    slug: "dukkan-magaza-temizligi",
+    num: "16",
+    title: "Dükkan ve Mağaza Temizliği",
+    summary:
+      "Satış alanı, vitrin, raf ve teşhir yüzeyleri ile zeminler için açılış öncesi, kapanış sonrası veya periyodik temizlik.",
+    description:
+      "Dükkan ve mağaza temizliği; müşteri trafiğinin yoğun olduğu satış alanlarında vitrin camı, raf ve teşhir yüzeyleri, kabinler ve zeminlerin mağazanın çalışma saatlerini aksatmadan temiz tutulmasını kapsar.",
+    sectors: "Perakende, Mağaza Zincirleri, Showroom",
+    scope: "Satış alanı, vitrin iç camı, raf ve teşhir yüzeyleri, zemin",
+    keywords: ["dükkan temizliği", "mağaza temizliği", "iş yeri temizliği"],
+    relatedSectorSlugs: ["avm-magazalar", "kurumsal-ofisler"],
+    relatedArticleSlugs: ["cok-subeli-isletmelerde-temizlik-operasyonu"],
+  },
 ];
+
+const RELATED_SERVICES: Record<string, string[]> = {
+  "gunluk-periyodik-temizlik": ["kurumsal-tesis-temizligi", "dukkan-magaza-temizligi", "detayli-temizlik"],
+  "kurumsal-tesis-temizligi": ["gunluk-periyodik-temizlik", "detayli-temizlik", "buharli-temizlik", "dis-cephe-cam-temizligi"],
+  "detayli-temizlik": ["buharli-temizlik", "insaat-tadilat-sonrasi-temizlik", "banyo-islak-alan-temizligi"],
+  "havacilik-temizligi": ["detayli-temizlik", "kalite-kontrol-teslim-sureci"],
+  "yat-tekne-temizligi": ["detayli-temizlik", "kalite-kontrol-teslim-sureci"],
+  "villa-rezidans-temizligi": ["banyo-islak-alan-temizligi", "havuz-cevre-alan-temizligi", "insaat-tadilat-sonrasi-temizlik", "detayli-temizlik"],
+  "dezenfeksiyon-uygulamalari": ["detayli-temizlik", "kurumsal-tesis-temizligi"],
+  "operasyon-personel-yonetimi": ["gunluk-periyodik-temizlik", "kalite-kontrol-teslim-sureci"],
+  "spor-salonu-temizligi": ["detayli-temizlik", "buharli-temizlik", "banyo-islak-alan-temizligi"],
+  "havuz-cevre-alan-temizligi": ["villa-rezidans-temizligi", "banyo-islak-alan-temizligi"],
+  "dis-cephe-cam-temizligi": ["kurumsal-tesis-temizligi", "dukkan-magaza-temizligi"],
+  "banyo-islak-alan-temizligi": ["buharli-temizlik", "detayli-temizlik", "villa-rezidans-temizligi"],
+  "insaat-tadilat-sonrasi-temizlik": ["detayli-temizlik", "buharli-temizlik", "kurumsal-tesis-temizligi"],
+  "kalite-kontrol-teslim-sureci": ["operasyon-personel-yonetimi", "gunluk-periyodik-temizlik"],
+  "buharli-temizlik": ["detayli-temizlik", "banyo-islak-alan-temizligi", "kurumsal-tesis-temizligi", "insaat-tadilat-sonrasi-temizlik"],
+  "dukkan-magaza-temizligi": ["gunluk-periyodik-temizlik", "detayli-temizlik", "dis-cephe-cam-temizligi", "insaat-tadilat-sonrasi-temizlik"],
+};
 
 export function getServiceBySlug(slug: string) {
   return SERVICES.find((service) => service.slug === slug);
+}
+
+export function getRelatedServices(slug: string) {
+  return (RELATED_SERVICES[slug] ?? [])
+    .map((relatedSlug) => getServiceBySlug(relatedSlug))
+    .filter((service): service is ServiceItem => service !== undefined);
 }
 
 export function getAllServiceSlugs() {

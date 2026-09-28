@@ -8,7 +8,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Çalışmalarımız",
   description:
-    "Quick Smart Clean; otel, HoReCa, havacılık, denizcilik, spor salonu, rezidans ve kurumsal yapılarda yürüttüğü profesyonel temizlik operasyonlarından seçilmiş görseller.",
+    "Quick Smart Clean'in otel, HoReCa, havacılık, denizcilik, spor salonu, rezidans ve kurumsal yapılardaki temizlik operasyonlarından seçilmiş görseller.",
   path: "/calismalarimiz",
 });
 

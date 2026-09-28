@@ -3,6 +3,9 @@ import { absoluteUrl, SITE } from "@/lib/site";
 
 const defaultOgImage = absoluteUrl(SITE.ogImage);
 
+// Longer titles skip the " | Quick Smart Clean" template so they stay near 65 characters.
+const MAX_TITLE_WITH_BRAND = 45;
+
 export function createPageMetadata({
   title,
   description,
@@ -18,7 +21,7 @@ export function createPageMetadata({
   const ogImage = image ? absoluteUrl(image) : defaultOgImage;
 
   return {
-    title,
+    title: title.length > MAX_TITLE_WITH_BRAND ? { absolute: title } : title,
     description,
     alternates: { canonical },
     openGraph: {

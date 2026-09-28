@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { PaymentNote } from "@/components/PaymentNote";
 import type { ServicePageContent } from "@/lib/service-pages";
+import { SITE } from "@/lib/site";
 
 export function ServicePageBody({ content }: { content: ServicePageContent }) {
   return (
@@ -35,6 +36,18 @@ export function ServicePageBody({ content }: { content: ServicePageContent }) {
           )}
         </section>
       ))}
+
+      <section className="mt-14">
+        <h2 className="font-serif text-[clamp(1.7rem,3vw,2.3rem)] leading-[1.15] text-cream">
+          Hizmet Bölgesi
+        </h2>
+        <p className="mt-4 text-[1.05rem] leading-[1.8] text-cream/88">
+          Quick Smart Clean, {content.serviceName.toLocaleLowerCase("tr-TR")} hizmetini{" "}
+          {SITE.areaServed}’da veriyor. Teklif
+          formunda ilçenizi seçin; planlama ve ulaşım koşulları teklif aşamasında
+          netleşir.
+        </p>
+      </section>
 
       {content.faqs.length > 0 && (
         <section className="mt-14 border-t border-line-white pt-10">

@@ -8,7 +8,7 @@ import { getArticleBySlug } from "@/lib/articles";
 import { IMAGES } from "@/lib/images";
 import { createPageMetadata } from "@/lib/metadata";
 import { SECTOR_PAGES } from "@/lib/service-pages";
-import { getServiceBySlug } from "@/lib/services-data";
+import { getServiceBySlug, SERVICES } from "@/lib/services-data";
 import { getAllSectorSlugs, getSectorBySlug } from "@/lib/sectors-data";
 import { absoluteUrl } from "@/lib/site";
 import {
@@ -16,9 +16,17 @@ import {
   faqJsonLd,
   graphJsonLd,
   serviceJsonLd,
+  webPageJsonLd,
 } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
+
+const SERVICE_TITLES = new Set(SERVICES.map((service) => `${service.title} İstanbul`));
+
+function sectorFallbackTitle(shortTitle: string) {
+  const title = `${shortTitle} Temizliği İstanbul`;
+  return SERVICE_TITLES.has(title) ? `${shortTitle} Sektörü İçin Temizlik İstanbul` : title;
+}
 
 export async function generateStaticParams() {
   return getAllSectorSlugs().map((slug) => ({ slug }));
@@ -31,7 +39,7 @@ export async function generateMetadata({ params }: Props) {
   const content = SECTOR_PAGES[slug];
 
   return createPageMetadata({
-    title: content?.seoTitle ?? sector.shortTitle,
+    title: content?.seoTitle ?? sectorFallbackTitle(sector.shortTitle),
     description: content?.metaDescription ?? sector.summary,
     path: `/sektorler/${slug}`,
     image: sector.imageKey ? IMAGES[sector.imageKey].src : undefined,
@@ -60,6 +68,12 @@ export default async function SectorDetailPage({ params }: Props) {
   ]);
   const jsonLd = content
     ? graphJsonLd([
+        webPageJsonLd({
+          pageUrl,
+          name: content.h1,
+          description: content.metaDescription,
+          mainEntityId: `${pageUrl}#service`,
+        }),
         serviceJsonLd({
           pageUrl,
           name: content.serviceName,
@@ -70,13 +84,7 @@ export default async function SectorDetailPage({ params }: Props) {
         faqJsonLd(pageUrl, content.faqs),
       ])
     : graphJsonLd([
-        {
-          "@type": "WebPage",
-          "@id": pageUrl,
-          name: sector.shortTitle,
-          description: sector.description,
-          url: pageUrl,
-        },
+        webPageJsonLd({ pageUrl, name: sector.shortTitle, description: sector.description }),
         breadcrumb,
       ]);
 

@@ -1,16 +1,26 @@
 # Quick Smart Clean
 
-Quick Smart Clean is a professional cleaning company serving corporate offices, healthcare facilities, HoReCa, aviation, marine, hospitality, retail, and premium residential properties in Turkey.
+> Quick Smart Clean, İstanbul'da işletmelere ve yaşam alanlarına profesyonel temizlik hizmeti veren bir temizlik şirketidir. Resmi site: https://www.quicksmartclean.com
 
-## Main pages
-- Home: https://www.quicksmartclean.com/
-- Services: https://www.quicksmartclean.com/hizmetler
-- Sectors: https://www.quicksmartclean.com/sektorler
-- Articles: https://www.quicksmartclean.com/makaleler
-- About: https://www.quicksmartclean.com/hakkimizda
-- Contact: https://www.quicksmartclean.com/iletisim
-- Corporate quote: https://www.quicksmartclean.com/kurumsal-teklif
+Hizmet bölgesi: İstanbul. Kesin fiyat, gerekli durumlarda keşif sonrası yazılı kapsamla verilir. Kredi kartıyla ödeme yapılabilir.
 
-## Contact
-Email: info@quicksmartclean.com
-Phone: +90 531 843 50 58
+## Temel hizmetler
+- [Ofis ve kurumsal tesis temizliği](https://www.quicksmartclean.com/hizmetler/kurumsal-tesis-temizligi): günlük, periyodik veya tek seferlik ofis temizliği
+- [Dükkan ve mağaza temizliği](https://www.quicksmartclean.com/hizmetler/dukkan-magaza-temizligi): satış alanı, vitrin, raf ve zemin
+- [Restoran ve endüstriyel mutfak temizliği](https://www.quicksmartclean.com/sektorler/restoranlar)
+- [İnşaat ve tadilat sonrası temizlik](https://www.quicksmartclean.com/hizmetler/insaat-tadilat-sonrasi-temizlik): moloz taşıma hariç
+- [Detaylı temizlik](https://www.quicksmartclean.com/hizmetler/detayli-temizlik)
+- [Buharlı temizlik](https://www.quicksmartclean.com/hizmetler/buharli-temizlik): uygun yüzeylerde; dezenfeksiyon olarak sunulmaz
+- [Villa ve rezidans temizliği](https://www.quicksmartclean.com/hizmetler/villa-rezidans-temizligi)
+- [Otel ve konaklama temizliği](https://www.quicksmartclean.com/sektorler/otel-konaklama)
+- [Tüm hizmetler](https://www.quicksmartclean.com/hizmetler)
+
+## Şirket bilgileri
+- [Hakkımızda ve sık sorulan sorular](https://www.quicksmartclean.com/hakkimizda)
+- [İletişim](https://www.quicksmartclean.com/iletisim)
+- [Teklif formu](https://www.quicksmartclean.com/kurumsal-teklif)
+- [Bilgi merkezi (makaleler)](https://www.quicksmartclean.com/makaleler)
+
+## İletişim
+- Telefon ve WhatsApp: +90 531 843 50 58
+- E-posta: info@quicksmartclean.com

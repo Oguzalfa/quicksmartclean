@@ -1,7 +1,23 @@
-import { absoluteUrl, SEO_IDS, SITE } from "@/lib/site";
+import { SECTOR_PAGES } from "@/lib/service-pages";
+import { SERVICES } from "@/lib/services-data";
+import { absoluteUrl, AREA_SERVED, SEO_IDS, SITE } from "@/lib/site";
+
+const ORGANIZATION_DESCRIPTION =
+  "Quick Smart Clean; İstanbul'da ofis ve kurumsal tesis, dükkan ve mağaza, restoran ve endüstriyel mutfak, inşaat ve tadilat sonrası, villa ve rezidans temizliğinin yanı sıra havacılık, yat ve otel temizliği hizmetleri sunan profesyonel temizlik şirketidir.";
 
 export function JsonLd() {
   const sameAs = Object.values(SITE.social).filter((url) => url.startsWith("https://"));
+  const catalogServices = [
+    ...SERVICES.map((service) => ({ name: service.title, path: `/hizmetler/${service.slug}` })),
+    ...Object.entries(SECTOR_PAGES).map(([slug, page]) => ({
+      name: page.serviceName,
+      path: `/sektorler/${slug}`,
+    })),
+  ];
+  const logo = {
+    "@type": "ImageObject",
+    url: absoluteUrl("/logo.png"),
+  };
   const data = {
     "@context": "https://schema.org",
     "@graph": [
@@ -13,13 +29,10 @@ export function JsonLd() {
         url: SITE.url,
         email: SITE.email,
         telephone: SITE.phoneE164,
-        logo: {
-          "@type": "ImageObject",
-          url: absoluteUrl("/logo.png"),
-        },
+        logo,
         image: absoluteUrl(SITE.ogImage),
-        description:
-          "Quick Smart Clean; restoran ve endüstriyel mutfaklar, ofis ve kurumsal tesisler, inşaat sonrası alanlar ile havacılık ve denizcilik sektörü için profesyonel temizlik hizmetleri sunar.",
+        description: ORGANIZATION_DESCRIPTION,
+        areaServed: AREA_SERVED,
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "customer service",
@@ -35,12 +48,28 @@ export function JsonLd() {
         "@id": SEO_IDS.localBusiness,
         name: SITE.name,
         url: SITE.url,
+        logo,
         image: absoluteUrl(SITE.ogImage),
+        description: ORGANIZATION_DESCRIPTION,
         telephone: SITE.phoneE164,
         email: SITE.email,
         parentOrganization: { "@id": SEO_IDS.organization },
-        areaServed: { "@type": "City", name: SITE.areaServed },
+        areaServed: AREA_SERVED,
         paymentAccepted: SITE.paymentAccepted,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Quick Smart Clean temizlik hizmetleri",
+          itemListElement: catalogServices.map((service) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              "@id": `${absoluteUrl(service.path)}#service`,
+              name: service.name,
+              url: absoluteUrl(service.path),
+            },
+          })),
+        },
+        ...(sameAs.length > 0 && { sameAs }),
       },
       {
         "@type": "WebSite",

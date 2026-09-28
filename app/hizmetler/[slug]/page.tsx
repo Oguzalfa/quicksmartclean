@@ -6,14 +6,15 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { getArticleBySlug } from "@/lib/articles";
 import { createPageMetadata } from "@/lib/metadata";
 import { SERVICE_PAGES } from "@/lib/service-pages";
-import { getAllServiceSlugs, getServiceBySlug } from "@/lib/services-data";
+import { getAllServiceSlugs, getRelatedServices, getServiceBySlug } from "@/lib/services-data";
 import { getSectorBySlug } from "@/lib/sectors-data";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, SITE } from "@/lib/site";
 import {
   breadcrumbJsonLd,
   faqJsonLd,
   graphJsonLd,
   serviceJsonLd,
+  webPageJsonLd,
 } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
   const content = SERVICE_PAGES[slug];
 
   return createPageMetadata({
-    title: content?.seoTitle ?? service.title,
+    title: content?.seoTitle ?? `${service.title} İstanbul`,
     description: content?.metaDescription ?? service.summary,
     path: `/hizmetler/${slug}`,
   });
@@ -48,13 +49,19 @@ export default async function ServiceDetailPage({ params }: Props) {
     .map((articleSlug) => getArticleBySlug(articleSlug))
     .filter(Boolean);
 
+  const relatedServices = getRelatedServices(slug);
+
   const pageUrl = absoluteUrl(`/hizmetler/${slug}`);
+  const serviceName = content?.serviceName ?? service.title;
+  const description = content?.metaDescription ?? service.description;
   const jsonLd = graphJsonLd([
-    serviceJsonLd({
+    webPageJsonLd({
       pageUrl,
-      name: content?.serviceName ?? service.title,
-      description: content?.metaDescription ?? service.description,
+      name: content?.h1 ?? service.title,
+      description,
+      mainEntityId: `${pageUrl}#service`,
     }),
+    serviceJsonLd({ pageUrl, name: serviceName, description }),
     breadcrumbJsonLd(pageUrl, [
       { name: "Ana Sayfa", path: "/" },
       { name: "Hizmetler", path: "/hizmetler" },
@@ -100,8 +107,32 @@ export default async function ServiceDetailPage({ params }: Props) {
                   </h2>
                   <p className="mt-3 text-muted">{service.scope}</p>
                 </div>
+                <div className="md:col-span-2">
+                  <h2 className="text-sm tracking-[0.16em] text-gold uppercase">
+                    Hizmet Bölgesi
+                  </h2>
+                  <p className="mt-3 text-muted">
+                    {SITE.areaServed}. Teklif formunda ilçenizi seçin; planlama ve
+                    ulaşım koşulları teklif aşamasında netleşir.
+                  </p>
+                </div>
               </div>
             </>
+          )}
+
+          {relatedServices.length > 0 && (
+            <div className="mt-12">
+              <h2 className="font-serif text-2xl text-cream">İlgili Hizmetler</h2>
+              <ul className="mt-4 space-y-3">
+                {relatedServices.map((related) => (
+                  <li key={related.slug}>
+                    <Link href={`/hizmetler/${related.slug}`} className="text-gold hover:underline">
+                      {related.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
 
           {relatedSectors.length > 0 && (

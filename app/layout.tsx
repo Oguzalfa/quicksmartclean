@@ -22,9 +22,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 const defaultTitle =
-  "Quick Smart Clean | İstanbul Kurumsal ve Profesyonel Temizlik";
+  "Quick Smart Clean | İstanbul Profesyonel Temizlik Hizmetleri";
 const defaultDescription =
-  "Quick Smart Clean; İstanbul'da restoran ve endüstriyel mutfak, ofis ve kurumsal tesis, zemin ve inşaat sonrası temizliğin yanı sıra havacılık, yat ve otel temizliği hizmetleri sunar.";
+  "İstanbul'da ofis, mağaza, restoran, inşaat sonrası, villa ve otel temizliği. Quick Smart Clean ile keşif, yazılı kapsam ve teslim kontrolüyle teklif alın.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -35,15 +35,16 @@ export const metadata: Metadata = {
   description: defaultDescription,
   applicationName: SITE.name,
   keywords: [
-    "kurumsal temizlik",
+    "İstanbul temizlik şirketi",
     "profesyonel temizlik şirketi",
     "ofis temizliği",
-    "hastane temizliği",
-    "restoran ve kafe temizliği",
-    "uçak temizliği",
-    "yat ve marina temizliği",
-    "villa ve rezidans temizliği",
-    "çok lokasyonlu temizlik hizmetleri",
+    "dükkan ve mağaza temizliği",
+    "inşaat sonrası temizlik",
+    "detaylı temizlik",
+    "buharlı temizlik",
+    "villa temizliği",
+    "restoran temizliği",
+    "otel temizliği",
   ],
   alternates: {
     canonical: absoluteUrl("/"),

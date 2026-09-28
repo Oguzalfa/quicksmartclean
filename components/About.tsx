@@ -26,9 +26,10 @@ export function About() {
           </Reveal>
           <Reveal delay={100}>
             <p className="mt-6 max-w-2xl text-muted">
-              Quick Smart Clean; kurumsal işletmeler, sağlık kuruluşları,
-              yeme-içme markaları, havacılık ve denizcilik sektörü ile seçkin
-              yaşam alanları için profesyonel temizlik çözümleri sunar. Her
+              Quick Smart Clean; İstanbul’da kurumsal işletmeler, mağazalar,
+              sağlık kuruluşları, yeme-içme markaları, havacılık ve denizcilik
+              sektörü ile seçkin yaşam alanları için profesyonel temizlik
+              çözümleri sunar. Her
               sektörün hijyen beklentisini, çalışma düzenini ve operasyonel
               hassasiyetlerini analiz ederek mekâna özel hizmet planları
               oluştururuz.
