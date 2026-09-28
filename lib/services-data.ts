@@ -11,10 +11,22 @@ export type ServiceItem = {
   relatedArticleSlugs: string[];
 };
 
-export const SERVICES: ServiceItem[] = [
+const SERVICE_LIST: Omit<ServiceItem, "num">[] = [
+  {
+    slug: "ev-temizligi",
+    title: "Ev Temizliği",
+    summary:
+      "Dairelerden villalara, taşınma öncesinden detaylı temizliğe İstanbul genelinde profesyonel ev temizliği.",
+    description:
+      "Ev temizliği; yaşam alanları, mutfak, banyo, zeminler ve erişilebilir yüzeylerde profesyonel ekip ve ekipmanla, yüzey türüne uygun yöntemle yapılan temizliği kapsar. Detaylı temizlik, taşınma öncesi ve sonrası temizlik veya tadilat sonrası temizlik olarak planlanabilir.",
+    sectors: "Daire, Müstakil Ev, Villa, Rezidans",
+    scope: "Yaşam alanları, mutfak, banyo, zemin ve erişilebilir yüzeyler",
+    keywords: ["ev temizliği", "profesyonel ev temizliği", "daire temizliği"],
+    relatedSectorSlugs: ["villa-rezidans"],
+    relatedArticleSlugs: ["villa-rezidans-temizligi-kapsami"],
+  },
   {
     slug: "gunluk-periyodik-temizlik",
-    num: "01",
     title: "Günlük ve Periyodik Temizlik",
     summary:
       "İşletmenizin çalışma düzenine uygun günlük, haftalık veya özel periyotlu temizlik planları.",
@@ -31,7 +43,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "kurumsal-tesis-temizligi",
-    num: "02",
     title: "Kurumsal Tesis Temizliği",
     summary:
       "Ofis, mağaza, hastane, restoran ve ortak kullanım alanlarında profesyonel ekip yönetimi.",
@@ -45,7 +56,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "detayli-temizlik",
-    num: "03",
     title: "Detaylı Temizlik",
     summary:
       "Yoğun kullanılan alanlarda yüzey, zemin, ekipman çevresi ve ulaşılması zor noktalar için kapsamlı uygulama.",
@@ -59,7 +69,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "havacilik-temizligi",
-    num: "04",
     title: "Havacılık Temizliği",
     summary:
       "Uçak kabini, özel jet ve havacılık alanları için hızlı, dikkatli ve detaylı hizmet.",
@@ -73,7 +82,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "yat-tekne-temizligi",
-    num: "05",
     title: "Yat ve Tekne Temizliği",
     summary:
       "Yatların iç yaşam alanları, güverte ve hassas yüzeyleri için özel bakım ve temizlik.",
@@ -87,7 +95,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "villa-rezidans-temizligi",
-    num: "06",
     title: "Villa ve Rezidans Temizliği",
     summary:
       "Seçkin yaşam alanları için mahremiyet, güven ve detay odaklı temizlik hizmeti.",
@@ -101,7 +108,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "dezenfeksiyon-uygulamalari",
-    num: "07",
     title: "Dezenfeksiyon Uygulamaları",
     summary:
       "Yoğun temas alanlarına ve işletme ihtiyaçlarına özel hijyen uygulamaları.",
@@ -115,7 +121,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "operasyon-personel-yonetimi",
-    num: "08",
     title: "Operasyon ve Personel Yönetimi",
     summary:
       "Çok lokasyonlu işletmeler için ekip planlama, vardiya ve kalite kontrol desteği.",
@@ -132,7 +137,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "spor-salonu-temizligi",
-    num: "09",
     title: "Spor Salonu Temizliği",
     summary:
       "Yoğun temas alanları, spor ekipmanları, zeminler ve ortak kullanım alanları için planlı temizlik hizmetleri.",
@@ -146,7 +150,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "havuz-cevre-alan-temizligi",
-    num: "10",
     title: "Havuz ve Çevre Alan Temizliği",
     summary:
       "Havuz çevresi, açık alan yüzeyleri ve yoğun kullanılan dış yaşam alanları için düzenli temizlik desteği.",
@@ -160,7 +163,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "dis-cephe-cam-temizligi",
-    num: "11",
     title: "Dış Cephe ve Cam Temizliği",
     summary:
       "Kurumsal binaların cam ve dış cephe yüzeyleri için erişim koşullarına göre planlanan profesyonel temizlik.",
@@ -174,7 +176,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "banyo-islak-alan-temizligi",
-    num: "12",
     title: "Banyo ve Islak Alan Temizliği",
     summary:
       "Banyo, lavabo, duş ve yoğun neme maruz kalan yüzeylerde detay odaklı temizlik uygulamaları.",
@@ -188,7 +189,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "insaat-tadilat-sonrasi-temizlik",
-    num: "13",
     title: "İnşaat ve Tadilat Sonrası Temizlik",
     summary:
       "Yeni tamamlanan veya yenilenen yaşam ve çalışma alanlarını kullanıma hazırlayan kapsamlı temizlik uygulamaları.",
@@ -202,7 +202,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "kalite-kontrol-teslim-sureci",
-    num: "14",
     title: "Kalite Kontrol ve Teslim Süreci",
     summary:
       "Tamamlanan hizmeti belirlenen kontrol adımlarıyla değerlendiren, teslim sürecini takip edilebilir şekilde yöneten operasyon yaklaşımı.",
@@ -216,7 +215,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "buharli-temizlik",
-    num: "15",
     title: "Buharlı Temizlik",
     summary:
       "Seramik, derz, paslanmaz çelik ve uygun zeminlerde yüksek sıcaklıkta buharla desteklenen detaylı temizlik.",
@@ -230,7 +228,6 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     slug: "dukkan-magaza-temizligi",
-    num: "16",
     title: "Dükkan ve Mağaza Temizliği",
     summary:
       "Satış alanı, vitrin, raf ve teşhir yüzeyleri ile zeminler için açılış öncesi, kapanış sonrası veya periyodik temizlik.",
@@ -244,22 +241,28 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
+export const SERVICES: ServiceItem[] = SERVICE_LIST.map((service, index) => ({
+  ...service,
+  num: String(index + 1).padStart(2, "0"),
+}));
+
 const RELATED_SERVICES: Record<string, string[]> = {
+  "ev-temizligi": ["detayli-temizlik", "buharli-temizlik", "insaat-tadilat-sonrasi-temizlik", "villa-rezidans-temizligi", "banyo-islak-alan-temizligi"],
   "gunluk-periyodik-temizlik": ["kurumsal-tesis-temizligi", "dukkan-magaza-temizligi", "detayli-temizlik"],
   "kurumsal-tesis-temizligi": ["gunluk-periyodik-temizlik", "detayli-temizlik", "buharli-temizlik", "dis-cephe-cam-temizligi"],
-  "detayli-temizlik": ["buharli-temizlik", "insaat-tadilat-sonrasi-temizlik", "banyo-islak-alan-temizligi"],
+  "detayli-temizlik": ["ev-temizligi", "buharli-temizlik", "insaat-tadilat-sonrasi-temizlik", "banyo-islak-alan-temizligi"],
   "havacilik-temizligi": ["detayli-temizlik", "kalite-kontrol-teslim-sureci"],
   "yat-tekne-temizligi": ["detayli-temizlik", "kalite-kontrol-teslim-sureci"],
-  "villa-rezidans-temizligi": ["banyo-islak-alan-temizligi", "havuz-cevre-alan-temizligi", "insaat-tadilat-sonrasi-temizlik", "detayli-temizlik"],
+  "villa-rezidans-temizligi": ["ev-temizligi", "banyo-islak-alan-temizligi", "havuz-cevre-alan-temizligi", "insaat-tadilat-sonrasi-temizlik", "detayli-temizlik"],
   "dezenfeksiyon-uygulamalari": ["detayli-temizlik", "kurumsal-tesis-temizligi"],
   "operasyon-personel-yonetimi": ["gunluk-periyodik-temizlik", "kalite-kontrol-teslim-sureci"],
   "spor-salonu-temizligi": ["detayli-temizlik", "buharli-temizlik", "banyo-islak-alan-temizligi"],
   "havuz-cevre-alan-temizligi": ["villa-rezidans-temizligi", "banyo-islak-alan-temizligi"],
   "dis-cephe-cam-temizligi": ["kurumsal-tesis-temizligi", "dukkan-magaza-temizligi"],
-  "banyo-islak-alan-temizligi": ["buharli-temizlik", "detayli-temizlik", "villa-rezidans-temizligi"],
-  "insaat-tadilat-sonrasi-temizlik": ["detayli-temizlik", "buharli-temizlik", "kurumsal-tesis-temizligi"],
+  "banyo-islak-alan-temizligi": ["ev-temizligi", "buharli-temizlik", "detayli-temizlik", "villa-rezidans-temizligi"],
+  "insaat-tadilat-sonrasi-temizlik": ["ev-temizligi", "detayli-temizlik", "buharli-temizlik", "kurumsal-tesis-temizligi"],
   "kalite-kontrol-teslim-sureci": ["operasyon-personel-yonetimi", "gunluk-periyodik-temizlik"],
-  "buharli-temizlik": ["detayli-temizlik", "banyo-islak-alan-temizligi", "kurumsal-tesis-temizligi", "insaat-tadilat-sonrasi-temizlik"],
+  "buharli-temizlik": ["ev-temizligi", "detayli-temizlik", "banyo-islak-alan-temizligi", "kurumsal-tesis-temizligi", "insaat-tadilat-sonrasi-temizlik"],
   "dukkan-magaza-temizligi": ["gunluk-periyodik-temizlik", "detayli-temizlik", "dis-cephe-cam-temizligi", "insaat-tadilat-sonrasi-temizlik"],
 };
 

@@ -4,6 +4,11 @@ import { Reveal } from "@/components/Reveal";
 
 const PRIORITY_SERVICES = [
   {
+    href: "/hizmetler/ev-temizligi",
+    title: "Ev Temizliği",
+    text: "Daire ve villalarda detaylı, taşınma öncesi ve sonrası ev temizliği; profesyonel ekip ve ekipmanla.",
+  },
+  {
     href: "/sektorler/restoranlar",
     title: "Restoran ve Endüstriyel Mutfak Temizliği",
     text: "Mutfak, salon, zemin ve derz için kapanış sonrası planlanan detay veya periyodik temizlik.",
@@ -38,13 +43,13 @@ export function PriorityServices() {
         <Reveal>
           <p className="mt-6 max-w-2xl text-muted">
             Quick Smart Clean, İstanbul genelinde bireysel ve kurumsal müşterilere
-            profesyonel temizlik hizmetleri sunar.{" "}
+            ev ve iş yerleri için profesyonel temizlik hizmetleri sunar.{" "}
             <Link href="/hizmet-bolgeleri" className="text-gold underline-offset-4 hover:underline">
               Hizmet bölgelerini görün
             </Link>
           </p>
         </Reveal>
-        <ul className="mt-12 grid gap-px border border-line-white bg-[rgba(255,255,255,0.09)] md:grid-cols-3">
+        <ul className="mt-12 grid gap-px border border-line-white bg-[rgba(255,255,255,0.09)] md:grid-cols-2 xl:grid-cols-4">
           {PRIORITY_SERVICES.map((service) => (
             <li key={service.href} className="bg-bg">
               <Link

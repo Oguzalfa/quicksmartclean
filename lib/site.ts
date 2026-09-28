@@ -148,6 +148,7 @@ export const PROCESS_STEPS = [
 ] as const;
 
 export const QUOTE_SERVICE_OPTIONS = [
+  { value: "ev", label: "Ev temizliği" },
   { value: "restoran-mutfak", label: "Restoran / endüstriyel mutfak temizliği" },
   { value: "ofis-kurumsal", label: "Ofis / kurumsal tesis temizliği" },
   { value: "dukkan-magaza", label: "Dükkan / mağaza temizliği" },

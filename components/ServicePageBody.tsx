@@ -36,12 +36,22 @@ export function ServicePageBody({ content }: { content: ServicePageContent }) {
               ))}
             </ul>
           )}
+          {section.links?.map((link) => (
+            <p key={link.href} className="mt-4">
+              <Link href={link.href} className="text-gold underline-offset-4 hover:underline">
+                {link.label}
+              </Link>
+            </p>
+          ))}
+          {section.cta && (
+            <ContactActions service={content.quoteService} trackLocation="service_mid" showPhone />
+          )}
         </section>
       ))}
 
       <section className="mt-14">
         <h2 className="font-serif text-[clamp(1.7rem,3vw,2.3rem)] leading-[1.15] text-cream">
-          İstanbul Genelinde Hizmet
+          {content.areaHeading ?? "İstanbul Genelinde Hizmet"}
         </h2>
         <p className="mt-4 text-[1.05rem] leading-[1.8] text-cream/88">
           Quick Smart Clean, {content.serviceName.toLocaleLowerCase("tr-TR")} hizmetini{" "}

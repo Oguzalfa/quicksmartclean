@@ -7,6 +7,7 @@
 - Fiyat: Kesin fiyat, gerekli durumlarda keşif sonrası yazılı kapsamla verilir.
 
 ## Temel hizmetler
+- [Ev temizliği](https://www.quicksmartclean.com/hizmetler/ev-temizligi): İstanbul genelinde daire, müstakil ev, villa ve rezidanslar için profesyonel ev temizliği; detaylı, taşınma öncesi/sonrası ve tadilat sonrası temizlik
 - [Ofis ve kurumsal tesis temizliği](https://www.quicksmartclean.com/hizmetler/kurumsal-tesis-temizligi): günlük, periyodik veya tek seferlik ofis temizliği
 - [Dükkan ve mağaza temizliği](https://www.quicksmartclean.com/hizmetler/dukkan-magaza-temizligi): satış alanı, vitrin, raf ve zemin
 - [Restoran ve endüstriyel mutfak temizliği](https://www.quicksmartclean.com/sektorler/restoranlar)

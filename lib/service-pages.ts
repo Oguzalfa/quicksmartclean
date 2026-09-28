@@ -2,6 +2,8 @@ export type ServicePageSection = {
   heading: string;
   paragraphs?: string[];
   bullets?: string[];
+  links?: { href: string; label: string }[];
+  cta?: boolean;
 };
 
 export type ServicePageFaq = {
@@ -20,6 +22,7 @@ export type ServicePageContent = {
   metaDescription: string;
   h1: string;
   serviceName: string;
+  areaHeading?: string;
   intro: string[];
   sections: ServicePageSection[];
   faqs: ServicePageFaq[];
@@ -273,6 +276,161 @@ export const SECTOR_PAGES: Record<string, ServicePageContent> = {
 };
 
 export const SERVICE_PAGES: Record<string, ServicePageContent> = {
+  "ev-temizligi": {
+    seoTitle: "Ev Temizliği İstanbul",
+    metaDescription:
+      "İstanbul genelinde profesyonel ev temizliği: detaylı temizlik, taşınma öncesi ve sonrası ile tadilat sonrası seçenekler. Kredi kartı ve taksit imkânı.",
+    h1: "İstanbul Profesyonel Ev Temizliği",
+    serviceName: "Ev Temizliği",
+    areaHeading: "İstanbul Genelinde Ev Temizliği",
+    intro: [
+      "Quick Smart Clean, İstanbul'un Anadolu ve Avrupa Yakası genelinde profesyonel ev temizliği hizmeti sunar. Daire, müstakil ev, villa ve rezidanslarda; yaşam alanları, mutfak, banyo ve zeminler profesyonel ekibimiz ve ekipmanımızla, yüzey türüne uygun yöntemle temizlenir.",
+      "Detaylı ev temizliği, taşınma öncesi ve sonrası temizlik ya da tadilat sonrası temizlik ihtiyacınıza göre kapsam teklif aşamasında sizinle birlikte belirlenir.",
+    ],
+    sections: [
+      {
+        heading: "Profesyonel Ev Temizliği",
+        paragraphs: [
+          "Profesyonel ev temizliği; evin günlük düzeninde atlanan bölümlerini de kapsayan, planlı ve kontrol listesine bağlı bir uygulamadır. Temizlenecek ve dokunulmayacak alanlar önceden netleştirilir; ekip, belirlenen tarih ve saat aralığında çalışır.",
+          "Mermer, doğal taş, ahşap ve lake gibi hassas yüzeylerde asitli ürün ve aşındırıcı aparat kullanılmaz; ürün ve yöntem yüzeye göre seçilir. Geniş yaşam alanlarına sahip evler için villa ve rezidans temizliği sayfamızı da inceleyebilirsiniz.",
+        ],
+        links: [{ href: "/hizmetler/villa-rezidans-temizligi", label: "Villa ve rezidans temizliği" }],
+      },
+      {
+        heading: "Ev Temizliği Neleri Kapsar?",
+        paragraphs: [
+          "Kapsam her evde teklif aşamasında yazılı olarak belirlenir. Tipik bir ev temizliğinde ele alınan bölümler:",
+        ],
+        bullets: [
+          "Salon, yatak odaları ve çalışma odası gibi yaşam alanları",
+          "Mutfak tezgâhı, dolap dışları ve ev aletlerinin dış yüzeyleri",
+          "Banyo ve tuvaletlerde fayans, derz, vitrifiye ve armatürler",
+          "Kapı, pervaz, süpürgelik, priz ve anahtarlar",
+          "Erişilebilir yüzeylerde ve yüksek noktalarda toz alma",
+          "İç cam yüzeyleri ve doğramalar",
+          "Zemin türüne uygun yöntemle zemin temizliği; uygun zeminlerde profesyonel makine desteği",
+          "Uygun seramik ve derz yüzeylerinde buharlı temizlik",
+        ],
+      },
+      {
+        heading: "Detaylı Ev Temizliği",
+        paragraphs: [
+          "Standart ev temizliği görünen yüzeylerin düzenini korur. Detaylı ev temizliği ise yüksek yüzeyler, köşeler, kapı ve pervazlar, derz araları ve dolap dışları gibi günlük temizlikte atlanan bölümleri de kapsar.",
+          "Uzun süre ertelenmiş temizliklerde, sezon başlangıcında veya evin uzun süre kullanılmadığı durumlarda tercih edilir.",
+        ],
+        links: [{ href: "/hizmetler/detayli-temizlik", label: "Detaylı temizlik hizmetini inceleyin" }],
+      },
+      {
+        heading: "Taşınma Öncesi ve Sonrası Ev Temizliği",
+        paragraphs: [
+          "Boş bir evde zeminlere, köşelere ve erişilebilir yüzeylere engelsiz ulaşılabildiği için taşınma öncesi temizlik yeni ev için kapsamlı bir başlangıç sağlar. Evi boşaltıp teslim etmeden önce de aynı şekilde planlanabilir.",
+          "Taşınma sonrası temizlikte eşyalı alanlarda erişilebilir yüzeyler ele alınır; eşya taşıma veya mobilya sökümü gerekip gerekmediği teklif aşamasında netleşir.",
+        ],
+        cta: true,
+      },
+      {
+        heading: "İnşaat ve Tadilat Sonrası Ev Temizliği",
+        paragraphs: [
+          "Tadilat sonrası evde kalan ince toz, boya, harç ve etiket kalıntıları standart temizlikten farklı bir yöntem gerektirir. Bu işler inşaat ve tadilat sonrası temizlik hizmetimiz kapsamında planlanır; moloz taşıma ve teknik inşaat işleri kapsam dışıdır.",
+        ],
+        links: [
+          { href: "/hizmetler/insaat-tadilat-sonrasi-temizlik", label: "İnşaat ve tadilat sonrası temizlik" },
+        ],
+      },
+      {
+        heading: "Buharlı Ev Temizliği",
+        paragraphs: [
+          "Evlerde buharlı temizlik; banyo fayansları ve derzler, lavabo ve armatür çevreleri ile seramik mutfak yüzeyleri gibi buhara dayanıklı yüzeylerde uygulanır. Parke, laminat, lake ve ısıya hassas yüzeylerde buhar kullanılmaz; bu bölümlerde farklı yöntem seçilir.",
+          "Buharlı temizliği bir dezenfeksiyon uygulaması olarak sunmuyoruz.",
+        ],
+        links: [{ href: "/hizmetler/buharli-temizlik", label: "Buharlı temizlik hangi yüzeylerde kullanılır?" }],
+      },
+      {
+        heading: "Fiyatı Neler Etkiler?",
+        bullets: [
+          "Evin büyüklüğü, oda ve banyo sayısı",
+          "Evin boş ya da eşyalı olması",
+          "Kirlilik seviyesi ve son detaylı temizliğin üzerinden geçen süre",
+          "Detaylı, taşınma öncesi/sonrası veya tadilat sonrası temizlik olması",
+          "Çalışma tarihi ve saat esnekliği",
+        ],
+      },
+      {
+        heading: "Ödeme Seçenekleri",
+        paragraphs: [
+          "Quick Smart Clean ev temizliği hizmetinde kredi kartıyla ödeme yapabilirsiniz. Kredi kartına taksit imkânı bulunmaktadır; taksit seçenekleri için bizimle iletişime geçebilirsiniz.",
+        ],
+      },
+      {
+        heading: "Kapsam Dışı İşler",
+        paragraphs: [
+          "Tamirat, boya ve teknik bakım işleri ile moloz taşıma bu hizmetin kapsamında değildir. Halı, koltuk veya perde yıkama gibi ihtiyaçlarınız varsa teklif aşamasında belirtin.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Quick Smart Clean ev temizliği yapıyor mu?",
+        answer: "Evet. Quick Smart Clean İstanbul genelinde profesyonel ev temizliği hizmeti sunmaktadır.",
+      },
+      {
+        question: "Ev temizliği hizmetiniz İstanbul'un hangi bölgelerinde var?",
+        answer:
+          "Quick Smart Clean İstanbul'un Anadolu ve Avrupa Yakası genelinde hizmet vermektedir. İlçe listesi Hizmet Bölgeleri sayfasında yer alır.",
+      },
+      {
+        question: "Profesyonel ev temizliği neleri kapsıyor?",
+        answer:
+          "Yaşam alanları, mutfak, banyo, erişilebilir yüzeyler ve zeminler kapsama girer. Kapsam her evde teklif aşamasında yazılı olarak netleşir.",
+      },
+      {
+        question: "Detaylı ev temizliği ile standart temizlik arasındaki fark nedir?",
+        answer:
+          "Standart temizlik görünen yüzeylerin düzenini korur. Detaylı temizlik ise yüksek yüzeyler, köşeler, kapı ve pervazlar ile derz araları gibi rutinde atlanan bölümleri de kapsar.",
+      },
+      {
+        question: "Taşınma öncesi veya sonrası ev temizliği yapıyor musunuz?",
+        answer:
+          "Evet. Boş ya da yeni taşınılan evlerde taşınma öncesi veya sonrası detaylı temizlik planlanabilir.",
+      },
+      {
+        question: "Tadilat sonrası ev temizliği yapıyor musunuz?",
+        answer:
+          "Evet. İnce toz ve yüzey kalıntıları için inşaat ve tadilat sonrası temizlik planlanır. Moloz taşıma kapsam dışıdır.",
+      },
+      {
+        question: "Buharlı temizlik evlerde kullanılabiliyor mu?",
+        answer:
+          "Evet, uygun yüzeylerde. Seramik fayans, derz, lavabo ve armatür gibi buhara dayanıklı yüzeylerde kullanılır; parke, laminat ve ısıya hassas yüzeylerde kullanılmaz.",
+      },
+      PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
+      {
+        question: "Ev temizliği için nasıl teklif alabilirim?",
+        answer:
+          "Teklif formunu doldurabilir, telefonla arayabilir veya WhatsApp'tan yazabilirsiniz. İlçe, evin yaklaşık büyüklüğü, oda ve banyo sayısı, evin boş ya da eşyalı olması ve uygun tarihi paylaşmanız yeterli.",
+      },
+    ],
+    guides: [
+      {
+        href: "/makaleler/villa-rezidans-temizligi-kapsami",
+        label: "Villa ve rezidans temizliğinin kapsamı",
+        description: "Özel yaşam alanlarında temizlik planı ve dikkat edilmesi gerekenler.",
+      },
+      {
+        href: "/makaleler/insaat-sonrasi-temizlik-asamalari",
+        label: "İnşaat sonrası temizlik aşamaları",
+        description: "Kaba temizlikten teslim kontrolüne adım adım süreç rehberi.",
+      },
+      {
+        href: "/makaleler/banyo-islak-alan-temizliginde-dikkat-edilmesi-gerekenler",
+        label: "Banyo ve ıslak alan temizliğinde dikkat edilmesi gerekenler",
+        description: "Fayans, derz ve armatürlerde yüzeye uygun yöntem seçimi.",
+      },
+    ],
+    quoteService: "ev",
+    updatedAt: "2026-09-28",
+  },
   "kurumsal-tesis-temizligi": {
     seoTitle: "Ofis ve Kurumsal Tesis Temizliği İstanbul",
     metaDescription:

@@ -36,6 +36,7 @@ const jsonLd = graphJsonLd([
 ]);
 
 const SERVICE_LINKS = [
+  { href: "/hizmetler/ev-temizligi", label: "Ev temizliği" },
   { href: "/hizmetler/kurumsal-tesis-temizligi", label: "Ofis ve kurumsal tesis temizliği" },
   { href: "/hizmetler/dukkan-magaza-temizligi", label: "Dükkan ve mağaza temizliği" },
   { href: "/sektorler/restoranlar", label: "Restoran ve endüstriyel mutfak temizliği" },
@@ -78,7 +79,11 @@ export default function ServiceAreasPage() {
             <p className="mt-4 max-w-[46rem] leading-[1.8] text-cream/88">
               İstanbul’un 39 ilçesinin tamamında hizmet veriyoruz. Teklif formunda
               ilçenizi seçmeniz yeterli; çalışma günü ve saati teklif aşamasında
-              birlikte planlanır.
+              birlikte planlanır. Daire, villa ve rezidanslar için{" "}
+              <Link href="/hizmetler/ev-temizligi" className="text-gold underline-offset-4 hover:underline">
+                İstanbul genelinde ev temizliği
+              </Link>{" "}
+              hizmetimizi inceleyebilirsiniz.
             </p>
             <div className="mt-8 grid gap-px border border-line-white bg-[rgba(255,255,255,0.09)] md:grid-cols-2">
               <DistrictGroup title="Anadolu Yakası" districts={ANATOLIAN_SIDE_DISTRICTS} />

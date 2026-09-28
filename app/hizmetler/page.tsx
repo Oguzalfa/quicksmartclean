@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, graphJsonLd, webPageJsonLd } from "@/lib/structured-d
 
 const title = "Temizlik Hizmetleri İstanbul";
 const description =
-  "İstanbul'da ofis, dükkan ve mağaza, restoran, inşaat sonrası, detaylı, buharlı, villa ve otel temizliği. Quick Smart Clean hizmetlerini inceleyin, teklif alın.";
+  "İstanbul'da ev, ofis, dükkan ve mağaza, restoran, inşaat sonrası, detaylı, buharlı, villa ve otel temizliği. Quick Smart Clean hizmetlerini inceleyin, teklif alın.";
 
 export const metadata = createPageMetadata({ title, description, path: "/hizmetler" });
 
@@ -32,6 +32,7 @@ const jsonLd = graphJsonLd([
 ]);
 
 const INTRO_LINKS = [
+  { href: "/hizmetler/ev-temizligi", label: "ev" },
   { href: "/hizmetler/kurumsal-tesis-temizligi", label: "ofis ve kurumsal tesis" },
   { href: "/hizmetler/dukkan-magaza-temizligi", label: "dükkan ve mağaza" },
   { href: "/sektorler/restoranlar", label: "restoran ve endüstriyel mutfak" },
