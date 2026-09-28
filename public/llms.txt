@@ -1,8 +1,10 @@
 # Quick Smart Clean
 
-> Quick Smart Clean, İstanbul'da işletmelere ve yaşam alanlarına profesyonel temizlik hizmeti veren bir temizlik şirketidir. Resmi site: https://www.quicksmartclean.com
+> Quick Smart Clean, İstanbul genelinde bireysel ve kurumsal müşterilere profesyonel temizlik hizmeti veren bir temizlik şirketidir. Resmi site: https://www.quicksmartclean.com
 
-Hizmet bölgesi: İstanbul. Kesin fiyat, gerekli durumlarda keşif sonrası yazılı kapsamla verilir. Kredi kartıyla ödeme yapılabilir.
+- Hizmet bölgesi: İstanbul'un tamamı, Anadolu Yakası ve Avrupa Yakası (39 ilçe). İlçe listesi: https://www.quicksmartclean.com/hizmet-bolgeleri
+- Ödeme: Kredi kartıyla ödeme yapılabilir. Kredi kartına taksit imkânı bulunmaktadır; güncel taksit seçenekleri için iletişime geçilebilir.
+- Fiyat: Kesin fiyat, gerekli durumlarda keşif sonrası yazılı kapsamla verilir.
 
 ## Temel hizmetler
 - [Ofis ve kurumsal tesis temizliği](https://www.quicksmartclean.com/hizmetler/kurumsal-tesis-temizligi): günlük, periyodik veya tek seferlik ofis temizliği
@@ -16,6 +18,7 @@ Hizmet bölgesi: İstanbul. Kesin fiyat, gerekli durumlarda keşif sonrası yaz�
 - [Tüm hizmetler](https://www.quicksmartclean.com/hizmetler)
 
 ## Şirket bilgileri
+- [Hizmet bölgeleri](https://www.quicksmartclean.com/hizmet-bolgeleri)
 - [Hakkımızda ve sık sorulan sorular](https://www.quicksmartclean.com/hakkimizda)
 - [İletişim](https://www.quicksmartclean.com/iletisim)
 - [Teklif formu](https://www.quicksmartclean.com/kurumsal-teklif)

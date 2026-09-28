@@ -22,7 +22,11 @@ export function BusinessFacts({ heading = "Firma Bilgileri" }: { heading?: strin
           data-track-location="business_facts"
         >
           <Fact term="Firma">{SITE.name}</Fact>
-          <Fact term="Hizmet bölgesi">{SITE.areaServed}</Fact>
+          <Fact term="Hizmet bölgesi">
+            <Link href="/hizmet-bolgeleri" className="text-gold underline-offset-4 hover:underline">
+              İstanbul geneli: Anadolu ve Avrupa Yakası
+            </Link>
+          </Fact>
           <Fact term="Öne çıkan hizmetler">
             <ul className="space-y-1">
               {PRIORITY_SERVICE_LINKS.map((service) => (
@@ -59,7 +63,11 @@ export function BusinessFacts({ heading = "Firma Bilgileri" }: { heading?: strin
               {SITE.email}
             </a>
           </Fact>
-          <Fact term="Ödeme">{SITE.paymentNote}</Fact>
+          <Fact term="Ödeme">
+            {SITE.paymentNote}
+            <br />
+            {SITE.installmentNote}
+          </Fact>
           <Fact term="Teklif">
             <Link href="/kurumsal-teklif" className="text-gold underline-offset-4 hover:underline">
               Teklif formu

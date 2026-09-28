@@ -25,7 +25,7 @@ export function PriorityServices() {
     <section className="section-pad border-t border-line-white" aria-labelledby="oncelikli-hizmetler">
       <div className="site-shell-wide">
         <Reveal>
-          <p className="eyebrow">İstanbul</p>
+          <p className="eyebrow">İstanbul Geneli Profesyonel Temizlik Hizmetleri</p>
         </Reveal>
         <Reveal>
           <h2
@@ -34,6 +34,15 @@ export function PriorityServices() {
           >
             Öne Çıkan Temizlik Hizmetlerimiz
           </h2>
+        </Reveal>
+        <Reveal>
+          <p className="mt-6 max-w-2xl text-muted">
+            Quick Smart Clean, İstanbul genelinde bireysel ve kurumsal müşterilere
+            profesyonel temizlik hizmetleri sunar.{" "}
+            <Link href="/hizmet-bolgeleri" className="text-gold underline-offset-4 hover:underline">
+              Hizmet bölgelerini görün
+            </Link>
+          </p>
         </Reveal>
         <ul className="mt-12 grid gap-px border border-line-white bg-[rgba(255,255,255,0.09)] md:grid-cols-3">
           {PRIORITY_SERVICES.map((service) => (

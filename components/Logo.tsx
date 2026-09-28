@@ -48,11 +48,3 @@ export function InstagramIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
-export function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-      <path d="M14.5 8.5V6.8c0-.7.5-1.3 1.6-1.3h1.4V3h-2.4C12.4 3 11 4.6 11 6.7v1.8H9v2.7h2V21h3.5v-9.8h2.3l.4-2.7h-2.7Z" />
-    </svg>
-  );
-}

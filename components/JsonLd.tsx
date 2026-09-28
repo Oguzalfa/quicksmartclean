@@ -3,7 +3,7 @@ import { SERVICES } from "@/lib/services-data";
 import { absoluteUrl, AREA_SERVED, SEO_IDS, SITE } from "@/lib/site";
 
 const ORGANIZATION_DESCRIPTION =
-  "Quick Smart Clean; İstanbul'da ofis ve kurumsal tesis, dükkan ve mağaza, restoran ve endüstriyel mutfak, inşaat ve tadilat sonrası, villa ve rezidans temizliğinin yanı sıra havacılık, yat ve otel temizliği hizmetleri sunan profesyonel temizlik şirketidir.";
+  "Quick Smart Clean; İstanbul'un Anadolu ve Avrupa Yakası genelinde bireysel ve kurumsal müşterilere ofis ve kurumsal tesis, dükkan ve mağaza, restoran ve endüstriyel mutfak, inşaat ve tadilat sonrası, villa ve rezidans, otel, havacılık ve yat temizliği hizmetleri sunan profesyonel temizlik şirketidir.";
 
 export function JsonLd() {
   const sameAs = Object.values(SITE.social).filter((url) => url.startsWith("https://"));

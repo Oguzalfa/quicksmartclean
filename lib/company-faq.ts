@@ -10,7 +10,7 @@ export const COMPANY_FAQS: CompanyFaq[] = [
   {
     question: "Quick Smart Clean nedir?",
     answer:
-      "Quick Smart Clean, İstanbul’da işletmelere ve yaşam alanlarına profesyonel temizlik hizmeti veren bir temizlik şirketidir. Her işi keşif veya ön değerlendirmeyle başlatır, kapsamı yazılı olarak paylaşır ve teslimi kontrol listesiyle yapar.",
+      "Quick Smart Clean, İstanbul genelinde bireysel ve kurumsal müşterilere profesyonel temizlik hizmeti veren bir temizlik şirketidir. Her işi keşif veya ön değerlendirmeyle başlatır, kapsamı yazılı olarak paylaşır ve teslimi kontrol listesiyle yapar.",
   },
   {
     question: "Quick Smart Clean hangi hizmetleri veriyor?",
@@ -31,7 +31,13 @@ export const COMPANY_FAQS: CompanyFaq[] = [
   {
     question: "Quick Smart Clean hangi bölgelerde hizmet veriyor?",
     answer:
-      "İstanbul’da hizmet veriyoruz. Teklif formunda ilçenizi seçtiğinizde planlama ve ulaşım koşulları teklif aşamasında netleşir.",
+      "Quick Smart Clean, İstanbul’un Anadolu ve Avrupa Yakası genelinde, 39 ilçenin tamamında hizmet vermektedir.",
+    links: [{ href: "/hizmet-bolgeleri", label: "Hizmet bölgeleri" }],
+  },
+  {
+    question: "Quick Smart Clean İstanbul’un tamamına hizmet veriyor mu?",
+    answer:
+      "Evet. Quick Smart Clean, İstanbul’un Anadolu ve Avrupa Yakası genelinde hizmet vermektedir.",
   },
   {
     question: "İstanbul’da ofis temizliği yapıyor musunuz?",
@@ -75,7 +81,16 @@ export const COMPANY_FAQS: CompanyFaq[] = [
   },
   {
     question: "Teklif nasıl alınır?",
-    answer: `Teklif formunu doldurabilir, ${SITE.phoneDisplay} numarasını arayabilir veya WhatsApp’tan yazabilirsiniz. Hizmet türü, ilçe, yaklaşık alan, istenen sıklık ve uygun zamanı paylaşmanız yeterli. Kesin fiyat, gerekli durumlarda keşif sonrası yazılı kapsamla verilir. Kredi kartıyla ödeme yapılabilir.`,
+    answer: `Teklif formunu doldurabilir, ${SITE.phoneDisplay} numarasını arayabilir veya WhatsApp’tan yazabilirsiniz. Hizmet türü, ilçe, yaklaşık alan, istenen sıklık ve uygun zamanı paylaşmanız yeterli. Kesin fiyat, gerekli durumlarda keşif sonrası yazılı kapsamla verilir.`,
     links: [{ href: "/kurumsal-teklif", label: "Teklif formu" }],
+  },
+  {
+    question: "Quick Smart Clean kredi kartı kabul ediyor mu?",
+    answer: "Evet. Quick Smart Clean hizmetlerinde kredi kartıyla ödeme yapılabilir.",
+  },
+  {
+    question: "Quick Smart Clean kredi kartına taksit yapıyor mu?",
+    answer:
+      "Kredi kartına taksit imkânı bulunmaktadır. Güncel taksit seçenekleri için Quick Smart Clean ile iletişime geçilebilir.",
   },
 ];

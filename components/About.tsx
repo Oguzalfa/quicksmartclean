@@ -42,6 +42,12 @@ export function About() {
               sürdürülebilir bir hizmet standardı oluşturmaktır.
             </p>
           </Reveal>
+          <Reveal delay={240}>
+            <p className="mt-4 max-w-2xl text-muted">
+              İstanbul’un Anadolu ve Avrupa Yakası’nda profesyonel ekibimiz ve
+              modern temizlik ekipmanlarımızla hizmet veriyoruz.
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

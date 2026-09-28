@@ -13,13 +13,14 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.quicksmartclean.com",
   email: "info@quicksmartclean.com",
   areaServed: "İstanbul",
-  paymentNote: "Kredi kartıyla ödeme imkânı",
+  areaServedDetail: "İstanbul'un Anadolu ve Avrupa Yakası",
+  paymentNote: "Kredi kartıyla ödeme",
+  installmentNote: "Kredi kartına taksit imkânı",
   paymentAccepted: "Kredi kartı",
   locale: "tr_TR",
   ogImage: "/images/quick-smart-clean-hotel.jpeg",
   social: {
-    instagram: "",
-    facebook: "",
+    instagram: "https://www.instagram.com/quicksmartclean/",
   },
 } as const;
 
@@ -33,6 +34,11 @@ export const AREA_SERVED = {
   "@type": "City",
   name: SITE.areaServed,
   sameAs: "https://www.wikidata.org/wiki/Q406",
+  containedInPlace: {
+    "@type": "Country",
+    name: "Türkiye",
+    sameAs: "https://www.wikidata.org/wiki/Q43",
+  },
 } as const;
 
 export function absoluteUrl(path: string = "") {
@@ -173,15 +179,22 @@ export const TIMING_OPTIONS = [
   { value: "esnek", label: "Tarih esnek" },
 ] as const;
 
-export const ISTANBUL_DISTRICTS = [
-  "Adalar", "Arnavutköy", "Ataşehir", "Avcılar", "Bağcılar", "Bahçelievler",
-  "Bakırköy", "Başakşehir", "Bayrampaşa", "Beşiktaş", "Beykoz", "Beylikdüzü",
-  "Beyoğlu", "Büyükçekmece", "Çatalca", "Çekmeköy", "Esenler", "Esenyurt",
-  "Eyüpsultan", "Fatih", "Gaziosmanpaşa", "Güngören", "Kadıköy", "Kağıthane",
-  "Kartal", "Küçükçekmece", "Maltepe", "Pendik", "Sancaktepe", "Sarıyer",
-  "Silivri", "Sultanbeyli", "Sultangazi", "Şile", "Şişli", "Tuzla",
-  "Ümraniye", "Üsküdar", "Zeytinburnu",
+export const ANATOLIAN_SIDE_DISTRICTS = [
+  "Adalar", "Ataşehir", "Beykoz", "Çekmeköy", "Kadıköy", "Kartal", "Maltepe",
+  "Pendik", "Sancaktepe", "Sultanbeyli", "Şile", "Tuzla", "Ümraniye", "Üsküdar",
 ] as const;
+
+export const EUROPEAN_SIDE_DISTRICTS = [
+  "Arnavutköy", "Avcılar", "Bağcılar", "Bahçelievler", "Bakırköy", "Başakşehir",
+  "Bayrampaşa", "Beşiktaş", "Beylikdüzü", "Beyoğlu", "Büyükçekmece", "Çatalca",
+  "Esenler", "Esenyurt", "Eyüpsultan", "Fatih", "Gaziosmanpaşa", "Güngören",
+  "Kağıthane", "Küçükçekmece", "Sarıyer", "Silivri", "Sultangazi", "Şişli",
+  "Zeytinburnu",
+] as const;
+
+export const ISTANBUL_DISTRICTS = [...ANATOLIAN_SIDE_DISTRICTS, ...EUROPEAN_SIDE_DISTRICTS].sort(
+  (a, b) => a.localeCompare(b, "tr"),
+);
 
 export const ARTICLE_CATEGORIES = [
   "Kurumsal Temizlik",

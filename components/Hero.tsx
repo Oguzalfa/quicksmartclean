@@ -90,7 +90,7 @@ export function Hero() {
             className="hero-description hero-rise text-cream/88"
             style={{ ["--d" as string]: "500ms" }}
           >
-            İstanbul’da kurumsal yapılardan sağlık kuruluşlarına, yeme-içme
+            İstanbul genelinde kurumsal yapılardan sağlık kuruluşlarına, yeme-içme
             markalarından havacılık ve denizcilik sektörüne kadar her mekâna özel
             profesyonel temizlik çözümleri.
           </p>

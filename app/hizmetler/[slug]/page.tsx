@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ServiceAdvantages } from "@/components/ServiceAdvantages";
 import { ServicePageBody } from "@/components/ServicePageBody";
 import { SiteLayout } from "@/components/SiteLayout";
 import { getArticleBySlug } from "@/lib/articles";
@@ -109,11 +110,14 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </div>
                 <div className="md:col-span-2">
                   <h2 className="text-sm tracking-[0.16em] text-gold uppercase">
-                    Hizmet Bölgesi
+                    İstanbul Genelinde Hizmet
                   </h2>
                   <p className="mt-3 text-muted">
-                    {SITE.areaServed}. Teklif formunda ilçenizi seçin; planlama ve
-                    ulaşım koşulları teklif aşamasında netleşir.
+                    Quick Smart Clean, bu hizmeti {SITE.areaServedDetail} genelinde
+                    sunar.{" "}
+                    <Link href="/hizmet-bolgeleri" className="text-gold underline-offset-4 hover:underline">
+                      Hizmet verdiğimiz ilçeler
+                    </Link>
                   </p>
                 </div>
               </div>
@@ -166,9 +170,12 @@ export default async function ServiceDetailPage({ params }: Props) {
           )}
 
           {!content && (
-            <Link href="/kurumsal-teklif" className="btn-primary mt-12 inline-flex">
-              Bu Hizmet İçin Teklif Alın
-            </Link>
+            <>
+              <Link href="/kurumsal-teklif" className="btn-primary mt-12 inline-flex">
+                Bu Hizmet İçin Teklif Alın
+              </Link>
+              <ServiceAdvantages />
+            </>
           )}
         </div>
       </section>

@@ -30,7 +30,13 @@ export type ServicePageContent = {
 
 const PAYMENT_FAQ: ServicePageFaq = {
   question: "Kredi kartıyla ödeme yapabilir miyim?",
-  answer: "Evet, temizlik hizmetlerimiz için kredi kartıyla ödeme yapabilirsiniz.",
+  answer: "Evet. Quick Smart Clean hizmetlerinde kredi kartıyla ödeme yapabilirsiniz.",
+};
+
+const INSTALLMENT_FAQ: ServicePageFaq = {
+  question: "Kredi kartına taksit yapılabiliyor mu?",
+  answer:
+    "Kredi kartına taksit imkânı bulunmaktadır. Güncel taksit seçenekleri için bizimle iletişime geçebilirsiniz.",
 };
 
 export const SECTOR_PAGES: Record<string, ServicePageContent> = {
@@ -140,6 +146,7 @@ export const SECTOR_PAGES: Record<string, ServicePageContent> = {
           "İlçe, yaklaşık mutfak ve salon alanı, istenen hizmet sıklığı ve uygun çalışma saatleri ile başlayabiliriz. Kesin teklif keşif sonrası hazırlanır.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -246,6 +253,7 @@ export const SECTOR_PAGES: Record<string, ServicePageContent> = {
           "İlçe, oda sayısı, ortak alanların yaklaşık büyüklüğü, istenen hizmet sıklığı ve uygun çalışma saatleri ile başlayabiliriz. Kesin teklif keşif sonrası hazırlanır.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -345,6 +353,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Evet. Taşınma, açılış veya uzun süre ertelenmiş detaylı temizlik için tek seferlik hizmet planlanabilir.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -439,6 +448,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Küçük ve kapsamı net işlerde fotoğraf ve video ile ön değerlendirme yapılabilir. Büyük alanlarda kesin teklif keşif sonrası hazırlanır.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -540,6 +550,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Evet. Eşyalı alanlarda erişilebilir yüzeyler ele alınır; eşya taşıma veya mobilya sökümü gerekip gerekmediği keşifte netleşir.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -645,6 +656,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Evet. Buharlı temizlik çoğunlukla detaylı temizliğin bir parçası olarak planlanır; ancak yalnızca belirli bölümler için de teklif isteyebilirsiniz.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -748,6 +760,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Evet. Şubeler için ortak bir kontrol listesi oluşturulur; kapsam ve sıklık her şubenin büyüklüğüne göre teklifte belirtilir.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {
@@ -841,6 +854,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
           "Evet, havuz çevresi ve teras temizliği ayrı bir hizmet olarak planlanabilir. Havuz suyu bakımı ve kimyasal analizi kapsam dışıdır.",
       },
       PAYMENT_FAQ,
+      INSTALLMENT_FAQ,
     ],
     guides: [
       {

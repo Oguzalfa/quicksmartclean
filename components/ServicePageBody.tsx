@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { PaymentNote } from "@/components/PaymentNote";
+import { ServiceAdvantages } from "@/components/ServiceAdvantages";
 import type { ServicePageContent } from "@/lib/service-pages";
 import { SITE } from "@/lib/site";
 
@@ -14,6 +15,7 @@ export function ServicePageBody({ content }: { content: ServicePageContent }) {
       ))}
 
       <ContactActions service={content.quoteService} trackLocation="service_intro" showPhone />
+      <ServiceAdvantages />
 
       {content.sections.map((section) => (
         <section key={section.heading} className="mt-14">
@@ -39,13 +41,16 @@ export function ServicePageBody({ content }: { content: ServicePageContent }) {
 
       <section className="mt-14">
         <h2 className="font-serif text-[clamp(1.7rem,3vw,2.3rem)] leading-[1.15] text-cream">
-          Hizmet Bölgesi
+          İstanbul Genelinde Hizmet
         </h2>
         <p className="mt-4 text-[1.05rem] leading-[1.8] text-cream/88">
           Quick Smart Clean, {content.serviceName.toLocaleLowerCase("tr-TR")} hizmetini{" "}
-          {SITE.areaServed}’da veriyor. Teklif
-          formunda ilçenizi seçin; planlama ve ulaşım koşulları teklif aşamasında
-          netleşir.
+          {SITE.areaServedDetail} genelinde sunar. Teklif formunda ilçenizi seçmeniz
+          yeterli.{" "}
+          <Link href="/hizmet-bolgeleri" className="text-gold underline-offset-4 hover:underline">
+            Hizmet verdiğimiz ilçeleri görün
+          </Link>
+          .
         </p>
       </section>
 
@@ -89,7 +94,8 @@ export function ServicePageBody({ content }: { content: ServicePageContent }) {
           Teklif formunu doldurun ya da telefon veya WhatsApp üzerinden yazın.
           Hizmet türü, ilçe, yaklaşık alan, istenen sıklık ve uygun zamanı
           paylaşmanız yeterli. Kesin fiyat, gerekli durumlarda keşif sonrası
-          yazılı kapsamla verilir.
+          yazılı kapsamla verilir. Kredi kartıyla ödeme yapabilirsiniz; taksit
+          seçenekleri için bizimle iletişime geçebilirsiniz.
         </p>
         <ContactActions service={content.quoteService} trackLocation="service_footer" showPhone />
         <PaymentNote className="mt-5" />

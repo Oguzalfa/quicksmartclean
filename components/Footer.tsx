@@ -1,4 +1,4 @@
-import { FacebookIcon, InstagramIcon, Logo, WhatsAppIcon } from "@/components/Logo";
+import { InstagramIcon, Logo, WhatsAppIcon } from "@/components/Logo";
 import Link from "next/link";
 import { ConsentPreferencesButton } from "@/components/ConsentPreferencesButton";
 import { NAV, SITE, whatsappUrl } from "@/lib/site";
@@ -31,14 +31,23 @@ export function Footer() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/hizmet-bolgeleri"
+            className="nav-link w-fit text-sm tracking-[0.12em] text-muted uppercase hover:text-cream"
+          >
+            Hizmet Bölgeleri
+          </Link>
         </nav>
         <div className="flex gap-3 md:justify-end" data-track-location="footer">
-          <Social label="Instagram hesabı yakında" href={SITE.social.instagram}>
+          <a
+            href={SITE.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center border border-line-white text-gold hover:border-gold"
+            aria-label="Instagram hesabımız"
+          >
             <InstagramIcon className="h-5 w-5" />
-          </Social>
-          <Social label="Facebook hesabı yakında" href={SITE.social.facebook}>
-            <FacebookIcon className="h-5 w-5" />
-          </Social>
+          </a>
           <a
             href={whatsappUrl()}
             target="_blank"
@@ -55,39 +64,5 @@ export function Footer() {
         <ConsentPreferencesButton />
       </div>
     </footer>
-  );
-}
-
-function Social({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  if (!href) {
-    return (
-      <span
-        className="inline-flex min-h-11 min-w-11 items-center justify-center border border-line-white text-muted"
-        title={label}
-        aria-label={label}
-      >
-        {children}
-      </span>
-    );
-  }
-
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex min-h-11 min-w-11 items-center justify-center border border-line-white text-gold hover:border-gold"
-      aria-label={label}
-    >
-      {children}
-    </a>
   );
 }

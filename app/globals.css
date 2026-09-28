@@ -354,6 +354,12 @@ button:hover .arrow-shift {
     6px 6px,
     6px 6px;
   background-repeat: no-repeat;
+  color-scheme: dark;
+}
+
+.form-select option {
+  background-color: var(--bg);
+  color: var(--cream);
 }
 
 @keyframes rise {
