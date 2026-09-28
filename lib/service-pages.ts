@@ -1,3 +1,7 @@
+import { INSTALLMENT_FAQ, PAYMENT_FAQ } from "@/lib/payment-faqs";
+import { MORE_SECTOR_PAGES } from "@/lib/sector-pages";
+import { MORE_SERVICE_PAGES } from "@/lib/service-pages-more";
+
 export type ServicePageSection = {
   heading: string;
   paragraphs?: string[];
@@ -31,18 +35,8 @@ export type ServicePageContent = {
   updatedAt: string;
 };
 
-const PAYMENT_FAQ: ServicePageFaq = {
-  question: "Kredi kartıyla ödeme yapabilir miyim?",
-  answer: "Evet. Quick Smart Clean hizmetlerinde kredi kartıyla ödeme yapabilirsiniz.",
-};
-
-const INSTALLMENT_FAQ: ServicePageFaq = {
-  question: "Kredi kartına taksit yapılabiliyor mu?",
-  answer:
-    "Kredi kartına taksit imkânı bulunmaktadır. Güncel taksit seçenekleri için bizimle iletişime geçebilirsiniz.",
-};
-
 export const SECTOR_PAGES: Record<string, ServicePageContent> = {
+  ...MORE_SECTOR_PAGES,
   restoranlar: {
     seoTitle: "Restoran ve Mutfak Temizliği İstanbul",
     metaDescription:
@@ -276,6 +270,7 @@ export const SECTOR_PAGES: Record<string, ServicePageContent> = {
 };
 
 export const SERVICE_PAGES: Record<string, ServicePageContent> = {
+  ...MORE_SERVICE_PAGES,
   "ev-temizligi": {
     seoTitle: "Ev Temizliği İstanbul",
     metaDescription:
